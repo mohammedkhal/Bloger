@@ -43,7 +43,21 @@ class Admin extends Authenticatable
         'created_at',
         'updated_at',
     ];
+ 
+    public function postReview()
+    {
+        return $this->hasMany('App\Models\PostReview', 'admin_id' , 'id');
+    }
 
+    public function updatePostReview()
+    {
+        return $this->hasMany('App\Models\UpdatePostReview', 'admin_id' , 'id');
+    }
+
+    public function singinOperationAdmin()
+    {
+        return $this->belongsTo('App\Models\SinginOperationAdmin' , 'admin_id' , 'id');
+    }
   
 
  
