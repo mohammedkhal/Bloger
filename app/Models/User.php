@@ -11,6 +11,14 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+  const STATUS_ACTIVE = 'active';
+  const STATUS_INACTIVE = 'inactive';
+  const STATUS_BLOCKED = 'blocked';
+
+  const TYPE_GENERAL_USER = 'user';
+  const TYPE_WRITER= 'writer';
+
+    
     public $table="users" ;
 
     protected $casts = [
@@ -24,9 +32,9 @@ class User extends Authenticatable
         'profile_pic' => 'string',
         'username' => 'string',
         'password' => 'string',
-        'status' => 'string',
         'vote' => 'integer',
-        'is_writer'=>'boolean',
+        'status' => 'enum',
+        'type' => 'enum',
         'account' => 'string',
         'website' => 'string',
 
@@ -35,8 +43,8 @@ class User extends Authenticatable
     protected $fillable = [
         'id', 'first_name', 'second_name','third_name',
         'email','phone_number','country','profile_pic' ,
-        'username','password','status','vote','is_writer',
-        'account','website' 
+        'username','password','vote','type',
+        'account','website','status'
     ];
 
     
@@ -54,15 +62,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Post' , 'user_id' , 'id');
     }
 
-    public function postReview()
-    {
-        return $this->hasMany('App\Models\PostReview' , 'user_id' , 'id');
-    }
-
-    public function updatePostReview()
-    {
-        return $this->hasMany('App\Models\UpdatePostReview' , 'user_id' , 'id');
-    }
 
     public function singinOperationUsers()
     {
