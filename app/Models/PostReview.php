@@ -20,8 +20,8 @@ class PostReview extends Model
      'admin_id' =>'string',
      'status' =>'boolean',
      'comment' =>'string',
-     'accept_date' =>'date',
-     'refuse_date' =>'date',
+     'accept_date' =>'timestamp',
+     'refuse_date' =>'timestamp',
     ];
 
 
@@ -32,8 +32,8 @@ class PostReview extends Model
 
     
     protected $dates = [
-        'created_at',
-        'updated_at',
+        'accept_date' ,
+     'refuse_date'  
     ];
 
     public function user()
