@@ -23,9 +23,9 @@ class CreateUpdatePostReveiwsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->boolean('status')->default(true);
             $table->string('comment');
-            $table->date('accept_date');
-            $table->date('refuse_date');
-            $table->timestamps();
+            $table->timestamp('accept_date');
+            $table->timestamp('refuse_date');
+            
         });
     }
 
