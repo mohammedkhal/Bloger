@@ -17,6 +17,7 @@ class UpdatePostReview extends Model
         'id' =>'integer' ,
      'post_review_id' =>'integer',
      'admin_id' =>'integer',
+     'user_id' =>'integer',
      'status' =>'boolean',
      'comment' =>'string',
      'accept_date' =>'date',
@@ -25,8 +26,8 @@ class UpdatePostReview extends Model
 
 
     protected $fillable = [
-        'id', 'post_review_id' , 'status', 'comment' , 
-        'accept_date' , 'refuse_date' , 'admin_id'
+        'id', 'post_review_id' , 'admin_id' ,'user_id' , 'status', 'comment' , 
+        'accept_date' , 'refuse_date' 
     ];
 
     
@@ -35,6 +36,15 @@ class UpdatePostReview extends Model
         'updated_at',
     ];
 
+    public function updatePostReview()
+    {
+        return $this->belongsTo('App\Models\User' , 'user_id' , 'id');
+    }
+
+    public function admin()
+    {
+        return $this->belongsTo('App\Models\Admins' , 'admin_id' , 'id');
+    }
   
 
  
