@@ -15,17 +15,17 @@ class CreatePostReveiwsTable extends Migration
     {
         Schema::create('post_reveiws', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('post_id')->unsigned();
+            $table->bigInteger('post_id')->unsigned();
             $table->foreign('post_id')->references('id')->on('posts');
-            $table->integer('user_id ')->unsigned();
-            $table->foreign('user_id ')->references('id')->on('users');
-            $table->integer('admin_id ')->unsigned();
-            $table->foreign('admin_id ')->references('id')->on('admin');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('admin_id')->unsigned();
+            $table->foreign('admin_id')->references('id')->on('admins');
             $table->boolean('status')->default(true);
             $table->string('comment');
-            $table->date('accept_date');
-            $table->date('refuse_date');
-            $table->timestamps();
+            $table->timestamp('accept_date')->nullable();
+            $table->timestamp('refuse_date')->nullable();
+        
         });
     }
 
