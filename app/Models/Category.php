@@ -25,9 +25,9 @@ class Category extends Authenticatable
         'slug' => 'string',
         'cover' => 'string',
         'number_of_post' => 'integer',
-        'last_use' => 'string',
-        'vote_sum' => 'integer',
-        'creation_date' => 'string',
+        'vote' => 'integer',
+        'last_use' => 'timestamp',
+        'create_at' => 'timestamp',
     ];
 
     protected $fillable = [
