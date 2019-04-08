@@ -12,7 +12,13 @@ class Vote extends Model
     use Notifiable;
 
     public $table="votes" ;
+    
 
+    protected $casts = [
+        'id' => 'integer' , 
+        'user_id' => 'integer' , 
+        'vote' => 'integer' , 
+    ];
 
     protected $fillable = [
         'id','user_id','vote'

@@ -13,6 +13,11 @@ class Country extends Model
 
     public $table="countries" ;
 
+    protected $casts = [
+        'id' =>'integer' ,
+     'country_name' =>'string'
+    ];
+
 
     protected $fillable = [
         'id', 'country_name' 

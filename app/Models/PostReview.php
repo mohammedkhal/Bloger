@@ -13,10 +13,21 @@ class PostReview extends Model
 
     public $table="post_reviews" ;
 
+    protected $casts = [
+        'id' =>'integer' ,
+     'post_id' =>'integer',
+     'user_id' =>'integer',
+     'admin_id' =>'string',
+     'status' =>'boolean',
+     'comment' =>'string',
+     'accept_date' =>'date',
+     'refuse_date' =>'date',
+    ];
+
 
     protected $fillable = [
-        'id', 'admin_id' , 'ip', 'country', 'device_type' ,
-        'browser' , 'operating_system' , 'login_date' , 'last_login' , 'session_end_date' 
+        'id', 'post_id' , 'user_id', 'admin_id', 'status' ,
+        'comment' , 'accept_date' , 'refuse_date'  
     ];
 
     

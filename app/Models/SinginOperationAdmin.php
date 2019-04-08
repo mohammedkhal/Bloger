@@ -13,6 +13,18 @@ class SinginOperationAdmin extends Model
 
     public $table="singin_operation_admins" ;
 
+    protected $casts = [
+        'id' =>'integer' ,
+        'admin_id' =>'integer',
+        'ip' =>'string',
+        'country' =>'string',
+        'device_type' =>'string',
+        'browser' =>'string',
+        'operating_system' =>'string',
+        'login_date' =>'date',
+        'last_login' =>'date',
+        'session_end_date' =>'date',
+       ];
 
     protected $fillable = [
         'id', 'admin_id' , 'ip', 'country', 'device_type' ,

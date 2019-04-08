@@ -13,6 +13,11 @@ class CategoryJoin extends Model
 
     public $table="category_joins" ;
 
+    protected $casts = [
+        'id' => 'integer',   
+        'post_id' => 'integer',   
+        'category_id' => 'integer',   
+    ];
 
     protected $fillable = [
         'id', 'post_id', 'category_id' 

@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
                 $table->string('password');
                 $table->integer('vote')->default(0);
                 $table->boolean('status')->default(true);
-                $table->integer('is_writer')->default(0);
+                $table->boolean('is_writer')->default(false);
                 $table->timestamps();
             });
      

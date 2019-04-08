@@ -13,6 +13,16 @@ class Tag extends Model
 
     public $table="tags" ;
 
+    protected $casts = [
+        'id' => 'integer',
+        'tag_name' => 'string',
+        'slug' => 'string',
+        'number_of_post' => 'integer',
+        'creation_date' => 'date',
+        'last_use' => 'date',
+
+    ];
+
 
     protected $fillable = [
         'id', 'tag_name' , 'slug', 'number_of_post' , 'creation_date' , 'last_use' ,

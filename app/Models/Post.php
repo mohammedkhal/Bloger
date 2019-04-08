@@ -26,11 +26,8 @@ class Post extends Authenticatable
         'short_description' => 'string',
         'body' => 'string',
         'cover_pic' => 'string',
-        'status' => 'integer',
+        'status' => 'boolean',
         'vote' => 'integer',
-       
-       
-
     ];
 
     protected $fillable = [

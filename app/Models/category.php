@@ -28,13 +28,11 @@ class Category extends Authenticatable
         'last_use' => 'string',
         'vote_sum' => 'integer',
         'creation_date' => 'string',
-       
-       
-
     ];
 
     protected $fillable = [
-     'id','category','slug','cover','number_of_posts','last_update'
+     'id','category_name','slug','cover','number_of_posts','last_use',
+     'creation_date', 'vote_sum'
     ];
 
     /**

@@ -12,6 +12,21 @@ class Admin extends Authenticatable
 
     public $table="Admins" ;
 
+    protected $casts = [
+        'id' => 'integer',   
+        'first_name' => 'string',
+        'second_name' => 'string',
+        'third_name' => 'string',
+        'email' => 'string',
+        'phone_number' => 'string',
+        'country' => 'string',
+        'profile_pic' => 'string',
+        'type' => 'string',
+        'username' => 'string',
+        'password' => 'integer',
+        'status' => 'boolean',
+    ];
+
 
     protected $fillable = [
         'id', 'first_name', 'second_name','third_name',

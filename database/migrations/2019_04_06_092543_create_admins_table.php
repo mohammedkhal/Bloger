@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Createsupervisors extends Migration
+class Createadmin extends Migration
 {
     /**
      * Run the migrations.
