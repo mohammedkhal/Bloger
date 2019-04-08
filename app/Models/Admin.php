@@ -10,10 +10,10 @@ class Admin extends Authenticatable
 {
     use Notifiable;
 
-    public $table="Admins" ;
+    public $table="admins" ;
 
     protected $casts = [
-        'id' => 'integer',   
+        'id' => 'unsignedBigInteger',   
         'first_name' => 'string',
         'second_name' => 'string',
         'third_name' => 'string',
