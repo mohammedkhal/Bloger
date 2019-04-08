@@ -15,7 +15,7 @@ class Vote extends Model
     
 
     protected $casts = [
-        'id' => 'integer' , 
+        'id' => 'unsignedBigInteger' , 
         'user_id' => 'integer' , 
         'vote' => 'integer' , 
     ];
