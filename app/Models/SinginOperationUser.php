@@ -38,7 +38,10 @@ class SinginOperationUsers extends Model
         'updated_at',
     ];
 
-  
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User' , 'user_id' , 'id');
+    }
 
  
 }
