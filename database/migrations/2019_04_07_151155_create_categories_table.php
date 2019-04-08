@@ -19,9 +19,9 @@ class CreateCategoriesTable extends Migration
             $table->string('slug');
             $table->string('code');
             $table->string('cover_pic')->default('noimage.jpg');
-            $table->int('vote')->default(0);
-            $table->timestamp('create_at');
-            $table->timestamp('last_use');
+            $table->integer('vote')->default(0);
+            $table->timestamp('create_at')->nullable();
+            $table->timestamp('last_use')->nullable();
         
         });
     }
