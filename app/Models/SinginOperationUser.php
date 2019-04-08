@@ -34,8 +34,9 @@ class SinginOperationUsers extends Model
 
     
     protected $dates = [
-        'created_at',
-        'updated_at',
+        'login_date',
+        'last_login',
+        'session_end_date',
     ];
 
     public function user()
