@@ -14,7 +14,7 @@ class UpdatePostReview extends Model
     public $table="update_post_reviews" ;
     
     protected $casts = [
-        'id' =>'integer' ,
+        'id' =>'unsignedBigInteger' ,
      'post_review_id' =>'integer',
      'admin_id' =>'integer',
      'user_id' =>'integer',
