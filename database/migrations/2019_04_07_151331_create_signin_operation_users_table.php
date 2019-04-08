@@ -22,10 +22,10 @@ class CreateSinginOperationUsersTable extends Migration
             $table->string('device') ; 
             $table->string('browser') ;
             $table->string('operating_system') ; 
-            $table->date('last_signin') ; 
-            $table->date('signin_date') ; 
-            $table->date('session_end_date') ; 
-            $table->timestamps();
+            $table->timestamp('last_signin') ; 
+            $table->timestamp('signin_date') ; 
+            $table->timestamp('session_end_date') ; 
+            
         });
     }
 
