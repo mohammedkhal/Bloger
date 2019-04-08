@@ -18,14 +18,14 @@ class Createadmin extends Migration
             $table->string('first_name');
             $table->string('second_name');
             $table->string('third_name');
+            $table->string('username')->unique();
+            $table->string('password');
             $table->string('email')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('country')->nullable();;
             $table->string('profile_pic')->default('noimage.jpg');
-            $table->string('type');
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->boolean('status')->default(true);
+            $table->enum('status',['active' , 'inactive' , 'blocked'])->default('active');
+            $table->enum('type',['general_manger' , 'supervisor'])->default('supervisor');
             $table->timestamps();
         });
     }
