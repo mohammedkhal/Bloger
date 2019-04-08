@@ -9,15 +9,16 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Post extends Authenticatable
 {
     use Notifiable;
+    
+  const STATUS_DRAFT = 'Draft';
+  const STATUS_SCHEDULED = 'Scheduled';
+  const STATUS_PUBLISHED = 'Published';
+  const STATUS_ARCHIVED = 'Archived';
+
+
 
     public $table="posts" ;
 
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
 
     protected $casts = [
         'id' => 'unsignedBigInteger',   
@@ -26,7 +27,7 @@ class Post extends Authenticatable
         'short_description' => 'string',
         'body' => 'string',
         'cover_pic' => 'string',
-        'status' => 'boolean',
+        'status' => 'enum',
         'vote' => 'integer',
     ];
 
@@ -65,7 +66,7 @@ class Post extends Authenticatable
         return $this->hasMany('App\Models\TagJoin', 'post_id' , 'id');
     }
 
-    public function vote()
+    public function postVote()
     {
         return $this->hasMany('App\Models\Vote' , 'user_id' , 'id');
     }
