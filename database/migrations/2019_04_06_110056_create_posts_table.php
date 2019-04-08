@@ -19,9 +19,9 @@ class CreatePosts extends Migration
             $table->string('slug');
             $table->string('short_description');
             $table->string('body');
+            $table->integer('vote');
             $table->string('cover_pic')->default('noimag.jpg');
-            $table->boolean('status')->default('true');
-            $table->integer('vote')->default(0);
+            $table->enum('status',['Draft' , 'Scheduled' , 'Published','Archived']);
             $table->timestamps();
         });
     }
