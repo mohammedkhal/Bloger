@@ -14,19 +14,20 @@ class Country extends Model
     public $table="countries" ;
 
     protected $casts = [
-        'id' =>'integer' ,
-     'country_name' =>'string'
+        'id' =>'unsignedBigInteger' ,
+        'code' => 'string',
+        'country_name' =>'string'
     ];
 
 
     protected $fillable = [
-        'id', 'country_name' 
+        'id', 'country_name','code' 
     ];
 
     
     protected $dates = [
-        'created_at',
-        'updated_at',
+        'create_at',
+        'last_use',
     ];
 
   
