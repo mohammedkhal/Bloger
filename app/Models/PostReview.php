@@ -14,7 +14,7 @@ class PostReview extends Model
     public $table="post_reviews" ;
 
     protected $casts = [
-        'id' =>'integer' ,
+     'id' =>'integer' ,
      'post_id' =>'integer',
      'user_id' =>'integer',
      'admin_id' =>'string',
@@ -36,7 +36,23 @@ class PostReview extends Model
         'updated_at',
     ];
 
-  
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User' , 'user_id' , 'id');
+    }
+
+    public function admin()
+    {
+        return $this->belongsTo('App\Models\Admin' , 'admin_id' , 'id');
+    }
+
+    public function post()
+    {
+        return $this->belongsTo('App\Models\Post' , 'post_id' , 'id');
+    }
+
+    
+
 
  
 }
