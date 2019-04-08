@@ -14,7 +14,7 @@ class PostReview extends Model
     public $table="post_reviews" ;
 
     protected $casts = [
-     'id' =>'integer' ,
+     'id' =>'unsignedBigInteger' ,
      'post_id' =>'integer',
      'user_id' =>'integer',
      'admin_id' =>'string',
