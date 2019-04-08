@@ -14,7 +14,7 @@ class SinginOperationAdmin extends Model
     public $table="singin_operation_admins" ;
 
     protected $casts = [
-        'id' =>'integer' ,
+        'id' =>'unsignedBigInteger' ,
         'admin_id' =>'integer',
         'ip' =>'string',
         'country' =>'string',
