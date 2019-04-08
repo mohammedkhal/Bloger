@@ -10,6 +10,13 @@ class Admin extends Authenticatable
 {
     use Notifiable;
 
+  const STATUS_ACTIVE = 'active';
+  const STATUS_INACTIVE = 'inactive';
+  const STATUS_BLOCKED = 'blocked';
+
+  const TYPE_GENERAL_MANGER = 'general_manger';
+  const TYPE_SUPERVISOR = 'supervisor';
+
     public $table="admins" ;
 
     protected $casts = [
@@ -24,7 +31,7 @@ class Admin extends Authenticatable
         'type' => 'string',
         'username' => 'string',
         'password' => 'integer',
-        'status' => 'boolean',
+        'status' => 'enum',
     ];
 
 
