@@ -42,8 +42,8 @@ class Category extends Authenticatable
      */
     
     protected $dates = [
-        'created_at',
-        'updated_at',
+        'create_at',
+        'last_use',
     ];
 
     public function categoryJoin()
