@@ -28,6 +28,15 @@ class TagJoin extends Model
         'updated_at',
     ];
 
+    public function post()
+    {
+        return $this->belongsTo('App\Models\Post', 'post_id' , 'id');
+    }
+
+    public function tag()
+    {
+        return $this->belongsTo('App\Models\Tag', 'tag_id' , 'id');
+    }
   
 
  
