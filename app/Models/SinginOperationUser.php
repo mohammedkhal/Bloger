@@ -14,7 +14,7 @@ class SinginOperationUsers extends Model
     public $table="singin_operation_users" ;
 
     protected $casts = [
-     'id' =>'integer' ,
+     'id' =>'unsignedBigInteger' ,
      'admin_id' =>'integer',
      'ip' =>'string',
      'country' =>'string',
