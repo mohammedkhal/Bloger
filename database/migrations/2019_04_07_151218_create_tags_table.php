@@ -18,9 +18,8 @@ class CreateTagsTable extends Migration
             $table->string('tag_name');
             $table->string('slug');
             $table->integer('number_of_posts');
-            $table->date('creation_date');
-            $table->date('last_use');
-            $table->timestamps();
+            $table->timestamp('create_at');
+            $table->timestamp('last_use');
         });
     }
 
