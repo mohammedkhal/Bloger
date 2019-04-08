@@ -15,9 +15,9 @@ class CreateTagJoinsTable extends Migration
     {
         Schema::create('tag_joins', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('tag_id')->unsigned();
+            $table->bigInteger('tag_id')->unsigned();
             $table->foreign('tag_id')->references('id')->on('tags');
-            $table->integer('post_id')->unsigned();
+            $table->bigInteger('post_id')->unsigned();
             $table->foreign('post_id')->references('id')->on('posts');
             $table->timestamps();
         });
