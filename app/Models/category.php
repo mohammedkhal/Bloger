@@ -20,7 +20,7 @@ class Category extends Authenticatable
      */
 
     protected $casts = [
-        'id' => 'integer',   
+        'id' => 'unsignedBigInteger',   
         'category_name' => 'string',
         'slug' => 'string',
         'cover' => 'string',
