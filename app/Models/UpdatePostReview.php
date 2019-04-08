@@ -32,8 +32,8 @@ class UpdatePostReview extends Model
 
     
     protected $dates = [
-        'created_at',
-        'updated_at',
+        'accept_date',
+        'refuse_date',
     ];
 
     public function updatePostReview()
@@ -43,7 +43,7 @@ class UpdatePostReview extends Model
 
     public function admin()
     {
-        return $this->belongsTo('App\Models\Admins' , 'admin_id' , 'id');
+        return $this->belongsTo('App\Models\Admin' , 'admin_id' , 'id');
     }
   
 
