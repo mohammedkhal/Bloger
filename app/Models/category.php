@@ -31,8 +31,8 @@ class Category extends Authenticatable
     ];
 
     protected $fillable = [
-     'id','category_name','slug','cover','number_of_posts','last_use',
-     'creation_date', 'vote_sum'
+     'id','category_name','slug','cover',
+     'number_of_posts','last_use','creation_date', 'vote_sum'
     ];
 
     /**
@@ -46,10 +46,9 @@ class Category extends Authenticatable
         'updated_at',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
+    public function categoryJoin()
+    {
+        return $this->hasMany('App\Models\CategoryJoin', 'category_id' , 'id');
+    }
     
 }
