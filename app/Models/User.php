@@ -43,10 +43,34 @@ class User extends Authenticatable
     protected $hidden = [
         'password'
     ];
+
     protected $dates = [
         'created_at',
         'updated_at',
     ];
   
+    public function post()
+    {
+        return $this->hasMany('App\Models\Post' , 'user_id' , 'id');
+    }
 
+    public function postReview()
+    {
+        return $this->hasMany('App\Models\PostReview' , 'user_id' , 'id');
+    }
+
+    public function updatePostReview()
+    {
+        return $this->hasMany('App\Models\UpdatePostReview' , 'user_id' , 'id');
+    }
+
+    public function singinOperationUsers()
+    {
+        return $this->hasMany('App\Models\SinginOperationUser' , 'user_id' , 'id');
+    }
+
+    public function vote()
+    {
+        return $this->hasMany('App\Models\Vote' , 'user_id' , 'id');
+    }
 }
