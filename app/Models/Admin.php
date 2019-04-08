@@ -56,7 +56,7 @@ class Admin extends Authenticatable
 
     public function singinOperationAdmin()
     {
-        return $this->belongsTo('App\Models\SinginOperationAdmin' , 'admin_id' , 'id');
+        return $this->hasMany('App\Models\SinginOperationAdmin' , 'admin_id' , 'id');
     }
   
 
