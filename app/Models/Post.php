@@ -20,7 +20,7 @@ class Post extends Authenticatable
      */
 
     protected $casts = [
-        'id' => 'integer',   
+        'id' => 'unsignedBigInteger',   
         'title' => 'string',
         'slug' => 'string',
         'short_description' => 'string',
