@@ -14,7 +14,7 @@ class Tag extends Model
     public $table="tags" ;
 
     protected $casts = [
-        'id' => 'integer',
+        'id' => 'unsignedBigInteger',
         'tag_name' => 'string',
         'slug' => 'string',
         'number_of_post' => 'integer',
