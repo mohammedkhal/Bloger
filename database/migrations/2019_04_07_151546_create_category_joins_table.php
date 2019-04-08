@@ -15,9 +15,9 @@ class CreateCategoryJoinsTable extends Migration
     {
         Schema::create('category_joins', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('category_id')->unsigned();
+            $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->integer('post_id')->unsigned();
+            $table->bigInteger('post_id')->unsigned();
             $table->foreign('post_id')->references('id')->on('posts');
             $table->timestamps();
         });
