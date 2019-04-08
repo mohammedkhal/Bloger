@@ -18,20 +18,20 @@ class Tag extends Model
         'tag_name' => 'string',
         'slug' => 'string',
         'number_of_post' => 'integer',
-        'creation_date' => 'date',
-        'last_use' => 'date',
+        'create_at' => 'timestamp',
+        'last_use' => 'timestamp',
 
     ];
 
 
     protected $fillable = [
-        'id', 'tag_name' , 'slug', 'number_of_post' , 'creation_date' , 'last_use' ,
+        'id', 'tag_name' , 'slug', 'number_of_post' , 'create_date' , 'last_use' ,
     ];
 
     
     protected $dates = [
         'created_at',
-        'updated_at',
+        'last_use',
     ];
 
     public function tagJoin()
