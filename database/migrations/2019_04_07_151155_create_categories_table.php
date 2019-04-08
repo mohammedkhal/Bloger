@@ -17,11 +17,12 @@ class CreateCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('category_name');
             $table->string('slug');
+            $table->string('code');
             $table->string('cover_pic')->default('noimage.jpg');
-            $table->int('vote_sum')->default(0);
-            $table->date('creation_date');
-            $table->date('last_use');
-            $table->timestamps();
+            $table->int('vote')->default(0);
+            $table->timestamp('create_at');
+            $table->timestamp('last_use');
+        
         });
     }
 
