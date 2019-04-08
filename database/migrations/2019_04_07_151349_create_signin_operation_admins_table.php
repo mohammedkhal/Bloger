@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSinginOperationAdminsTable extends Migration
+class CreateSigninOperationAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,16 +15,16 @@ class CreateSinginOperationAdminsTable extends Migration
     {
         Schema::create('singin_operation_admins', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('admin_id')->unsigned();
+            $table->bigInteger('admin_id')->unsigned();
             $table->foreign('admin_id')->references('id')->on('admins');
             $table->string('ip') ; 
             $table->string('country') ; 
             $table->string('device') ; 
             $table->string('browser') ;
             $table->string('operating_system') ; 
-            $table->date('last_signin') ; 
-            $table->date('signin_date') ; 
-            $table->date('session_end_date') ; 
+            $table->timestamp('last_signin')->nullable() ; 
+            $table->timestamp('signin_date')->nullable() ; 
+            $table->timestamp('session_end_date')->nullable() ; 
             $table->timestamps();
         });
     }
