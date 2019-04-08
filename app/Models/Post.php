@@ -45,10 +45,29 @@ class Post extends Authenticatable
         'updated_at',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id' , 'id');
+    }
+
+    public function postReview()
+    {
+        return $this->hasMany('App\Models\PostReview', 'post_id' , 'id');
+    }
+
+    public function categoryJoin()
+    {
+        return $this->hasMany('App\Models\CategoryJoin', 'post_id' , 'id');
+    }
+
+    public function tagJoin()
+    {
+        return $this->hasMany('App\Models\TagJoin', 'post_id' , 'id');
+    }
+
+    public function vote()
+    {
+        return $this->hasMany('App\Models\Vote' , 'user_id' , 'id');
+    }
     
 }
