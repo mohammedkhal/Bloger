@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSinginOperationUsersTable extends Migration
+class CreateSigninOperationUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,16 +15,16 @@ class CreateSinginOperationUsersTable extends Migration
     {
         Schema::create('singin_operation_users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('ip') ; 
             $table->string('country') ; 
             $table->string('device') ; 
             $table->string('browser') ;
             $table->string('operating_system') ; 
-            $table->timestamp('last_signin') ; 
-            $table->timestamp('signin_date') ; 
-            $table->timestamp('session_end_date') ; 
+            $table->timestamp('last_signin')->nullable() ; 
+            $table->timestamp('signin_date')->nullable() ; 
+            $table->timestamp('session_end_date')->nullable() ; 
             
         });
     }
