@@ -14,16 +14,16 @@ class SinginOperationUsers extends Model
     public $table="singin_operation_users" ;
 
     protected $casts = [
-     'id' =>'unsignedBigInteger' ,
-     'admin_id' =>'integer',
+     'id' =>'BigInteger' ,
+     'admin_id' =>'BigInteger',
      'ip' =>'string',
      'country' =>'string',
      'device_type' =>'string',
      'browser' =>'string',
      'operating_system' =>'string',
-     'login_date' =>'date',
-     'last_login' =>'date',
-     'session_end_date' =>'date',
+     'login_date' =>'timestamp',
+     'last_login' =>'timestamp',
+     'session_end_date' =>'timestamp',
     ];
 
 
