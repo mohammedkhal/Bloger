@@ -14,29 +14,27 @@ class SinginOperationUsers extends Model
     public $table="singin_operation_users" ;
 
     protected $casts = [
-     'id' =>'BigInteger' ,
-     'admin_id' =>'BigInteger',
+     'id' =>'integer' ,
+     'admin_id' =>'integer',
      'ip' =>'string',
      'country' =>'string',
      'device_type' =>'string',
      'browser' =>'string',
      'operating_system' =>'string',
-     'login_date' =>'timestamp',
-     'last_login' =>'timestamp',
-     'session_end_date' =>'timestamp',
+     
     ];
 
 
     protected $fillable = [
         'id', 'writer_id' , 'ip', 'country', 'device_type' ,
-        'browser' , 'operating_system' , 'login_date' , 'last_login' , 'session_end_date' 
+        'browser' , 'operating_system' , 'last_signin' , 'signin_at' , 'session_end_at' 
     ];
 
     
     protected $dates = [
-        'login_date',
-        'last_login',
-        'session_end_date',
+        'last_signin',
+        'signin_at',
+        'session_end_at',
     ];
 
     public function user()
