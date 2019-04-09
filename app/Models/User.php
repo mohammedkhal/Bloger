@@ -22,7 +22,7 @@ class User extends Authenticatable
     public $table="users" ;
 
     protected $casts = [
-        'id' => 'unsignedBigInteger',   
+        'id' => 'BigInteger',   
         'first_name' => 'string',
         'second_name' => 'string',
         'third_name' => 'string',
