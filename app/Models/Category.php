@@ -13,26 +13,18 @@ class Category extends Authenticatable
     public $table="categories" ;
 
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-
     protected $casts = [
-        'id' => 'bigInteger',   
+        'id' => 'integer',   
         'category_name' => 'string',
         'slug' => 'string',
         'cover' => 'string',
         'number_of_post' => 'integer',
         'vote' => 'integer',
-        'last_use' => 'timestamp',
-        'create_at' => 'timestamp',
     ];
 
     protected $fillable = [
      'id','category_name','slug','cover',
-     'number_of_posts','last_use','creation_date', 'vote_sum'
+     'number_of_posts','last_use','created_at', 'vote_sum'
     ];
 
     /**
@@ -42,7 +34,7 @@ class Category extends Authenticatable
      */
     
     protected $dates = [
-        'create_at',
+        'created_at',
         'last_use',
     ];
 
