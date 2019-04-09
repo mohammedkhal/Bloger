@@ -12,8 +12,8 @@ class PasswordReset extends Model
     use Notifiable;
 
     protected $casts = [
-        'id' => 'bigInteger' ,
-        'user_id' => 'bigInteger', 
+        'id' => 'integer' ,
+        'user_id' => 'integer', 
         'email' => 'string' , 
         'token' => 'string' , 
     ] ; 
