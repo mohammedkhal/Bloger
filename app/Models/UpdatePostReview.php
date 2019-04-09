@@ -14,26 +14,24 @@ class UpdatePostReview extends Model
     public $table="update_post_reviews" ;
     
     protected $casts = [
-        'id' =>'unsignedBigInteger' ,
+     'id' =>'integer' ,
      'post_review_id' =>'integer',
      'admin_id' =>'integer',
      'user_id' =>'integer',
-     'status' =>'boolean',
+     'status' =>'string',
      'comment' =>'string',
-     'accept_date' =>'timestamp',
-     'refuse_date' =>'timestamp',
     ];
 
 
     protected $fillable = [
-        'id', 'post_review_id' , 'admin_id' ,'user_id' , 'status', 'comment' , 
-        'accept_date' , 'refuse_date' 
+        'id', 'post_review_id', 'admin_id', 'user_id', 'status', 'comment', 
+        'accept_at' , 'refuse_at' 
     ];
 
     
     protected $dates = [
-        'accept_date',
-        'refuse_date',
+        'accept_at',
+        'refuse_at',
     ];
 
     public function updatePostReview()
