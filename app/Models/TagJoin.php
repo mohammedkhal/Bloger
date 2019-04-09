@@ -14,9 +14,9 @@ class TagJoin extends Model
     public $table="tag_joins" ;
 
     protected $casts = [
-        'id' => 'unsignedBigInteger',
-        'post_id' => 'integer',
-        'tag_id' => 'integer',
+        'id' => 'BigInteger',
+        'post_id' => 'BigInteger',
+        'tag_id' => 'BigInteger',
     ];
     protected $fillable = [
         'id', 'post_id' , 'tag_id'
