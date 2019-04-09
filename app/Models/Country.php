@@ -14,7 +14,7 @@ class Country extends Model
     public $table="countries" ;
 
     protected $casts = [
-        'id' =>'unsignedBigInteger' ,
+        'id' =>'bigInteger' ,
         'code' => 'string',
         'country_name' =>'string'
     ];
