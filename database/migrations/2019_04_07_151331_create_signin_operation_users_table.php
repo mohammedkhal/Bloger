@@ -23,8 +23,8 @@ class CreateSigninOperationUsersTable extends Migration
             $table->string('browser') ;
             $table->string('operating_system') ; 
             $table->timestamp('last_signin')->nullable() ; 
-            $table->timestamp('signin_date')->nullable() ; 
-            $table->timestamp('session_end_date')->nullable() ; 
+            $table->timestamp('signin_at')->nullable() ; 
+            $table->timestamp('session_end_at')->nullable() ; 
             
         });
     }
