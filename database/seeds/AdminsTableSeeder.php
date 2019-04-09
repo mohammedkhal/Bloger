@@ -17,11 +17,9 @@ class AdminsTableSeeder extends Seeder
         DB::table('admins')->insert([
             'first_name' => "mohamed",
             'second_name' => "khaled",
-            'last_name' => "altamimi",
+            'third_name' => "altamimi",
             'email' => "mohamed9797khaled@gmail.com",
-            'phone' => "0791450338",
-            'type' => "general_manger",
-            'status' => true,
+            'phone_number' => "0791450338",
             'username' => "mohamedaltamimi",
             'password' => bcrypt('secret'),
         ]);
@@ -29,11 +27,9 @@ class AdminsTableSeeder extends Seeder
         DB::table('admins')->insert([
             'first_name' => "nibras",
             'second_name' => "blabla",
-            'last_name' => "blabla",
+            'third_name' => "blabla",
             'email' => "blabla@yahoo.com",
-            'phone' => "079000000",
-            'type' => "supervisor",
-            'status' => true,
+            'phone_number' => "079000000",
             'username' => "nibrassuperme",
             'password' => bcrypt('secret'),
         ]);
