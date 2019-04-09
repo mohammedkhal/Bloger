@@ -20,8 +20,8 @@ class UpdatePostReview extends Model
      'user_id' =>'integer',
      'status' =>'boolean',
      'comment' =>'string',
-     'accept_date' =>'date',
-     'refuse_date' =>'date',
+     'accept_date' =>'timestamp',
+     'refuse_date' =>'timestamp',
     ];
 
 
