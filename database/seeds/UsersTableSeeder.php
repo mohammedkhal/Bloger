@@ -18,6 +18,8 @@ class UsersTableSeeder extends Seeder
             'second_name' => "khaled",
             'third_name' => "altamimi",
             'email' => "mohamed9797khaled@gmail.com",
+            'status'=>'active',
+            'type' => 'user',
             'username' => "mohamedaltamimi",
             'password' => bcrypt('secret'),
         ]);
@@ -27,6 +29,8 @@ class UsersTableSeeder extends Seeder
             'second_name' => "dunno",
             'third_name' => "dunno",
             'email' => "any@gmail.com",
+            'status'=>'inactive',
+            'type' => 'writer',
             'username' => "areejyaseen",
             'password' => bcrypt('secret'),
         ]);
