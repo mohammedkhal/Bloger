@@ -16,11 +16,8 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'first_name' => "mohamed",
             'second_name' => "khaled",
-            'last_name' => "altamimi",
+            'third_name' => "altamimi",
             'email' => "mohamed9797khaled@gmail.com",
-            'phone' => "0791450338",
-            'status' => true,
-            'is_writer' => true,
             'username' => "mohamedaltamimi",
             'password' => bcrypt('secret'),
         ]);
@@ -28,11 +25,8 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'first_name' => "areej",
             'second_name' => "dunno",
-            'last_name' => "dunno",
+            'third_name' => "dunno",
             'email' => "any@gmail.com",
-            'phone' => "07977777777",
-            'status' => true,
-            'is_writer' => false,
             'username' => "areejyaseen",
             'password' => bcrypt('secret'),
         ]);
