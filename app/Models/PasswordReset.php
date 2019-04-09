@@ -11,17 +11,23 @@ class PasswordReset extends Model
 {
     use Notifiable;
 
+    protected $casts = [
+        'id' => 'bigInteger' ,
+        'user_id' => 'bigInteger', 
+        'email' => 'string' , 
+        'token' => 'string' , 
+    ] ; 
+
     public $table="password_resets" ;
 
 
     protected $fillable = [
-        'id', 'email' , 'token' 
+        'id', 'email' , 'token' ,'user_id', 
     ];
 
     
     protected $dates = [
         'created_at',
-        'updated_at',
     ];
 
   
