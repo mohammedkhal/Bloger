@@ -17,7 +17,7 @@ class CreateTagsTable extends Migration
             $table->bigIncrements('id');
             $table->string('tag_name');
             $table->string('slug');
-            $table->integer('number_of_posts');
+            $table->integer('number_of_posts')->default(0);
             $table->timestamp('create_at')->nullable();
             $table->timestamp('last_use')->nullable();
         });
