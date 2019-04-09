@@ -21,10 +21,10 @@ class CreatePostReveiwsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('admin_id')->unsigned();
             $table->foreign('admin_id')->references('id')->on('admins');
-            $table->boolean('status')->default(true);
+            $table->enum('status' , ['accept' ,'refuse']);
             $table->string('comment');
-            $table->timestamp('accept_date')->nullable();
-            $table->timestamp('refuse_date')->nullable();
+            $table->timestamp('accept_at')->nullable();
+            $table->timestamp('refuse_at')->nullable();
         
         });
     }
