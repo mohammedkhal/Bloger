@@ -24,7 +24,7 @@ class Country extends Model
         'id', 'country_name','code' 
     ];
 
-    
+     
     protected $dates = [
         'created_at',
         'updated_at',
