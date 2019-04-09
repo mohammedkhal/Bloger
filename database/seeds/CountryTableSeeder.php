@@ -13,32 +13,32 @@ class CountryTableSeeder extends Seeder
     {
         DB::table('countries')->insert([
             'country_name' => "jordan",
-            'code' => 'Jo',
+            'code' => 'jo',
         ]);
         
         DB::table('countries')->insert([
             'country_name' => "iraq",
-            'code' => 'Irq',
+            'code' => 'iq',
         ]);
 
         DB::table('countries')->insert([
             'country_name' => "egypt",
-            'code' => 'Egy',
+            'code' => 'eg',
         ]);
         
         DB::table('countries')->insert([
             'country_name' => "palastine",
-            'code' => 'Pal',
+            'code' => 'ps',
         ]);
         
         DB::table('countries')->insert([
             'country_name' => "america",
-            'code' => 'Usa',
+            'code' => 'us',
         ]);
 
         DB::table('countries')->insert([
             'country_name' => "australia",
-            'code' => 'Aus',
+            'code' => 'au',
         ]);
     }
 }
