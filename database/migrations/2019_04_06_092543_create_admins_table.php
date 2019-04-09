@@ -25,7 +25,7 @@ class CreateAdminsTable extends Migration
             $table->string('country')->nullable();;
             $table->string('profile_pic')->default('noimage.jpg');
             $table->enum('status',['active' , 'inactive' , 'blocked'])->default('active');
-            $table->enum('type',['general_manger' , 'supervisor'])->default('supervisor');
+            $table->enum('type',['general_manger' , 'supervisor']);
             $table->timestamps();
         });
     }
