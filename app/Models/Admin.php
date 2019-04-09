@@ -20,7 +20,7 @@ class Admin extends Authenticatable
     public $table="admins" ;
 
     protected $casts = [
-        'id' => 'unsignedBigInteger',   
+        'id' => 'bigInteger',   
         'first_name' => 'string',
         'second_name' => 'string',
         'third_name' => 'string',
