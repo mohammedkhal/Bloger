@@ -20,6 +20,8 @@ class AdminsTableSeeder extends Seeder
             'third_name' => "altamimi",
             'email' => "mohamed9797khaled@gmail.com",
             'phone_number' => "0791450338",
+            'status' => 'active',
+            'type' =>'general_manger',
             'username' => "mohamedaltamimi",
             'password' => bcrypt('secret'),
         ]);
@@ -29,7 +31,9 @@ class AdminsTableSeeder extends Seeder
             'second_name' => "blabla",
             'third_name' => "blabla",
             'email' => "blabla@yahoo.com",
-            'phone_number' => "079000000",
+            'phone_number' => "0790000000",
+            'status' => 'inactive',
+            'type' =>'supervisor',
             'username' => "nibrassuperme",
             'password' => bcrypt('secret'),
         ]);
