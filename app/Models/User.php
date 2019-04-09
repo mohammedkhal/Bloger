@@ -15,14 +15,14 @@ class User extends Authenticatable
   const STATUS_INACTIVE = 'inactive';
   const STATUS_BLOCKED = 'blocked';
 
-  const TYPE_GENERAL_USER = 'user';
+  const TYPE_USER = 'user';
   const TYPE_WRITER= 'writer';
 
     
     public $table="users" ;
 
     protected $casts = [
-        'id' => 'BigInteger',   
+        'id' => 'integer',   
         'first_name' => 'string',
         'second_name' => 'string',
         'third_name' => 'string',
@@ -33,8 +33,8 @@ class User extends Authenticatable
         'username' => 'string',
         'password' => 'string',
         'vote' => 'integer',
-        'status' => 'enum',
-        'type' => 'enum',
+        'status' => 'string',
+        'type' => 'string',
         'account' => 'string',
         'website' => 'string',
 
