@@ -9,25 +9,24 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Post extends Authenticatable
 {
     use Notifiable;
-    
-  const STATUS_DRAFT = 'Draft';
-  const STATUS_SCHEDULED = 'Scheduled';
-  const STATUS_PUBLISHED = 'Published';
-  const STATUS_ARCHIVED = 'Archived';
 
-
-
-    public $table="posts" ;
+  public $table="posts" ;
+ 
+  
+  const STATUS_DRAFT = 'draft';
+  const STATUS_SCHEDULED = 'scheduled';
+  const STATUS_PUBLISHED = 'published';
+  const STATUS_ARCHIVED = 'archived';
 
 
     protected $casts = [
-        'id' => 'BigInteger',   
+        'id' => 'integer',   
         'title' => 'string',
         'slug' => 'string',
         'short_description' => 'string',
         'body' => 'string',
         'cover_pic' => 'string',
-        'status' => 'enum',
+        'status' => 'string',
         'vote' => 'integer',
     ];
 
