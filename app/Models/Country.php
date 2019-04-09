@@ -14,7 +14,7 @@ class Country extends Model
     public $table="countries" ;
 
     protected $casts = [
-        'id' =>'bigInteger' ,
+        'id' =>'integer' ,
         'code' => 'string',
         'country_name' =>'string'
     ];
@@ -26,8 +26,8 @@ class Country extends Model
 
     
     protected $dates = [
-        'create_at',
-        'last_use',
+        'created_at',
+        'updated_at',
     ];
 
   
