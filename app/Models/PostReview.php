@@ -14,26 +14,25 @@ class PostReview extends Model
     public $table="post_reviews" ;
 
     protected $casts = [
-     'id' =>'BigInteger' ,
-     'post_id' =>'BigInteger',
-     'user_id' =>'BigInteger',
+     'id' =>'integer' ,
+     'post_id' =>'integer',
+     'user_id' =>'integer',
      'admin_id' =>'string',
      'status' =>'boolean',
      'comment' =>'string',
-     'accept_date' =>'timestamp',
-     'refuse_date' =>'timestamp',
+  
     ];
 
 
     protected $fillable = [
         'id', 'post_id' , 'user_id', 'admin_id', 'status' ,
-        'comment' , 'accept_date' , 'refuse_date'  
+        'comment', 'accept_at', 'refuse_at'  
     ];
 
     
     protected $dates = [
-        'accept_date' ,
-     'refuse_date'  
+     'accept_at' ,
+     'refuse_at'  
     ];
 
     public function user()
