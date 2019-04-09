@@ -14,12 +14,12 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-            'catogry_name' => "programming",
+            'category_name' => "programming",
             'slug' => "programming",
         ]);
         
         DB::table('categories')->insert([
-            'catogry_name' => "sport",
+            'category_name' => "sport",
             'slug' => "sport",
         ]);
     }
