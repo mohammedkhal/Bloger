@@ -46,15 +46,17 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
-
+           
+        
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
         ],
-        'writer' => [
-            'driver' => 'session',
-            'provider' => 'writers',
-        ],
+       
     ],
     
 
@@ -78,17 +80,14 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\User::class,
         ],
 
         'admins' => [
             'driver' => 'eloquent',
-            'model' => App\Supervisor::class,
+            'model' => App\Models\Admin::class,
         ],
-        'writers' => [
-            'driver' => 'eloquent',
-            'model' => App\Writer::class,
-        ],
+        
 
         // 'users' => [
         //     'driver' => 'database',
