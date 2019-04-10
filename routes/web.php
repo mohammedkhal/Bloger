@@ -36,24 +36,28 @@ Route::group(['prefix' => 'articles', 'namespace' => 'Articles'], function () {
 });
 
 
-Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
+Route::group(['prefix' => 'auth', 'namespace' => 'Authorization'], function () {
     Route::get('/sign-up', 'SignUpController@createUser')->name('auth.sign-up');
     Route::post('/sign-up', 'SignUpController@storeUser')->name('auth.sign-up.store');
 
-    Route::get('/sign-in', 'SignInController@createLogin')->name('auth.sign-in.');
+    Route::get('/sign-in', 'SignInController@createLogin')->name('auth.sign-in');
     Route::post('/sign-in', 'SignInController@storeUser')->name('auth.sign-in.auth');
 
-    Route::post('/sign-out', 'SignOutController@destroyUser')->name('auth.sign-out.auth');
+    Route::get('/sign-out', 'SignOutController@destroyUser')->name('auth.sign-out.auth');
 });
-
-
-Route::group(['prefix' => 'account', 'namespace' => 'Account'], function () {
-    Route::get('/', 'EditController@showUser')->name('account.show');
-    Route::post('/', 'EditController@updateUser')->name('account.update');
-});
-
 
 Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard'], function () {
     Route::post('/', 'AdminController@dashboard')->name('index');
-    Route::post('auth/sign-in', 'SessionsController@storeAdmin')->name('login.store');
+    Route::get('auth/sign-in', 'SessionsController@createLogin')->name('signin');
+    Route::post('auth/sign-in', 'SessionsController@storeAdmin')->name('signin.store');
+    Route::get('auth/sign-out', 'SessionsController@destroyUser')->name('signout');
+
 });
+
+Route::group(['prefix' => 'account', 'namespace' => 'Account'], function () {
+    Route::get('/{username}', 'EditController@showUser')->name('account.show');
+    Route::post('/', 'EditController@updateUser')->name('account.update');
+    Route::get('/', 'UserController@allUser')->name('account.all');
+
+});
+
