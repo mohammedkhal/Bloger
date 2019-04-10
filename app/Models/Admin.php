@@ -16,6 +16,8 @@ class Admin extends Authenticatable
 
   const TYPE_GENERAL_MANGER = 'general_manger';
   const TYPE_SUPERVISOR = 'supervisor';
+  
+  protected $guard = 'admin';
 
     public $table="admins" ;
 
@@ -66,6 +68,10 @@ class Admin extends Authenticatable
         return $this->hasMany('App\Models\SinginOperationAdmin' , 'admin_id' , 'id');
     }
   
+    public function singinOperationUsers()
+    {
+        return $this->hasMany('App\Models\SinginOperationUser' , 'user_id' , 'id');
+    }
 
  
 }

@@ -21,6 +21,8 @@ class User extends Authenticatable
     
     public $table="users" ;
 
+    protected $guard = 'user';
+
     protected $casts = [
         'id' => 'integer',   
         'first_name' => 'string',
@@ -63,13 +65,18 @@ class User extends Authenticatable
     }
 
 
-    public function singinOperationUsers()
-    {
-        return $this->hasMany('App\Models\SinginOperationUser' , 'user_id' , 'id');
-    }
 
     public function vote()
     {
         return $this->hasMany('App\Models\Vote' , 'user_id' , 'id');
     }
+
+    
+    public function singinOperationUsers()
+    {
+        return $this->hasMany('App\Models\SinginOperationUser' , 'user_id' , 'id');
+    }
+
+ 
+
 }
