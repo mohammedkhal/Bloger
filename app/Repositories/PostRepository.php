@@ -47,36 +47,6 @@ class PostRepository
 		}
 	}
 
-	public function getTag($attributes)
-	{
-		return $this->post->where('tag', '=', $attributes['tag'])->get();
-	}
 
 
-	public function updatePost($post_id, array $attributes)
-	{
-		$post = $this->getModel();
-		$post = $post->find($post_id);
-		$post->title = $attributes['title'];
-		$post->body = $attributes['body'];
-      
-		if ($post->save())
-			return true;
-	}
-
-
-	public function getProfile()
-	{
-		$id = auth()->user()->id;
-		$post = $this->getModel();
-
-		return $post->where('user_id', $id)->get();
-	}
-
-
-	public function delete($post_id)
-	{
-		$post = $this->getModel();
-		return $post->find($post_id)->delete();
-	}
 }
