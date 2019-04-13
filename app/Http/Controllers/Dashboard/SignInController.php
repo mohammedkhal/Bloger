@@ -8,17 +8,15 @@ use Auth;
 
 class SessionsController extends Controller {
 
-
-   
-       public function createLogin()
+       public function create()
        {
            return view('auth.admin_signin');
        }
        
-       public function storeAdmin(Request $request)
+       public function store(Request $request)
        {
-           if (!Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password]) )
-            {    //dd($request->password);
+        if (!Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password]))
+           {  
                 return back()->withErrors([
                    'message' => 'The email or password is incorrect, please try again'
                ]);
@@ -27,10 +25,9 @@ class SessionsController extends Controller {
            return redirect()->route('auth.sign-up');
        }
        
-       public function destroy()
+       public function signout()
        {
         Auth::guard('admin')->logout();
-           
            return redirect()->route('signin.store');
        }
 
