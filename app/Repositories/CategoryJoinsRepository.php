@@ -26,5 +26,21 @@ class CategoryJoinsRepository
     return $categoryObj ;
   }
   
+  public function update(array $attributes)
+  {
+    $categoryObj = $this->getModel() ;
+
+    $categoryObj->where('post_id', $attributes['post_id'] )->get()->delete() ;
+     
+    $array =$attributes['category'];
+    foreach($array as $category){
+      $categoryObj = $this->getModel() ;
+      $categoryObj->category_id = $category ;
+      $categoryObj->post_id = $attributes['post_id'] ;
+      $categoryObj->save();
+    }
+    return $categoryObj ;
+  }
+  
 
 }
