@@ -3,7 +3,7 @@
 
 <h3>user sign up  @-@</h3>
 <hr>
-<form action="{{route('auth.sign-up.store')}}" method="POST" >
+<form action="{{route('auth.sign-up.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
         <div class="form-row">
           <div class="form-group col-md-4">
@@ -19,6 +19,10 @@
             <input type="text" name="third_name" class="form-control" id="inputPassword4" >
           </div>
         </div>
+        <div class="form-group">
+          <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
+          <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
+      </div>
 
 
         <div class="form-group">
