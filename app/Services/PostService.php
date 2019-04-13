@@ -28,7 +28,7 @@ class PostService
 	 * 
 	 * @return collection
 	 */
-	public function indexServices()
+	public function index()
 	{
 		return $this->post->getAll();
 	}
@@ -36,13 +36,9 @@ class PostService
 
 	public function show($slug)
 	{ 
-
 		return $this->post->find($slug);
 	}
 	
-
-
- 
 	public function store(Request $request)
 	{
 		$request->validate([
@@ -74,39 +70,21 @@ class PostService
   
 	}
 
-	public function showTag(Request $request)
-	{
-		$attributes = $request->all();
-		return $this->tag->getTag($attributes);
-
-	}
-
-	//finished EditeControlle  
-	public function updateRecord(Request $request, $post_id)
+ 
+	public function update(Request $request, $slug)
 	{
 		$request->validate([
 			'title' => 'required|max:255',
 			'body' => 'required',
 			'tag' => 'required',
-
+			'slug' => 'required|unique:posts',
+			'short_description' => 'required',
 		]);
+
 		$attributes = $request->all();
-		$tags = $this->tag->edaitTag($post_id, $attributes);
 
-		return $this->post->updatepost($post_id, $attributes);
+		return $this->post->update($attributes, $slug);
 	}
 
-	public function showProfile()
-	{
-		return $this->post->getProfile();
-	}
-
-
-	public function deleteRecord($post_id)
-	{
-		$this->comment->delete($post_id);
-		$this->tag->delete($post_id);
-		return $this->post->delete($post_id);
-	}
 }
 

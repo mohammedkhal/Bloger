@@ -39,7 +39,7 @@
                   <a class="nav-link" href="{{route('posts.index')}}">All Posts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('account.all')}}">All Users</a>
+                    <a class="nav-link" href="{{route('user.all')}}">All Users</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{route('auth.sign-out.auth')}}">Sign Out</a>
