@@ -67,7 +67,6 @@ class PostService
 			$newTag = $this->tagJoin->store($tag ,  $post->id);
 		}
 		
-  
 	}
 
  
@@ -82,6 +81,8 @@ class PostService
 		]);
 
 		$attributes = $request->all();
+		$attributes['user_id'] =  Auth::guard('user')->id() ;
+		$this->categoryJoin->update($attributes);
 
 		return $this->post->update($attributes, $slug);
 	}

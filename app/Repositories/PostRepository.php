@@ -47,6 +47,21 @@ class PostRepository
 		}
 	}
 
+	public function update(array $attributes, $slug)
+	{
+
+		$post = $this->find($slug);
+
+		$post->title = $attributes['title'];
+		$post->short_description = $attributes['short_description'];
+		$post->body = $attributes['body'];
+		$post->slug = $attributes['slug'];
+		$post->user_id = $attributes['user_id'];
+
+		if ($post->save()) {
+			return $post;
+		}
+	}
 
 
 }
