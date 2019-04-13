@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Authorization;
+namespace App\Http\Controllers\Auth;
 use App\Services\SignupService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
