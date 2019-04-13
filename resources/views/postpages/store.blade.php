@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<form action="{{route('articles.create.store')}}" method="post">
+<form action="{{route('posts.create.store')}}" method="post">
 @csrf
 
  Title : <input type="text" name="title"> <br>
