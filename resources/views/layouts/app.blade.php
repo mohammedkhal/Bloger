@@ -21,7 +21,7 @@
 </head>
 <body>
         <ul class="nav">
-          @unless (Auth::check())
+       
         
     
           <li class="nav-item">
@@ -31,12 +31,12 @@
           <li class="nav-item">
               <a class="nav-link" href="{{route('signin')}}">Admins SignIn</a>
             </li>
-            @endunless
+         
          
          
                
                 <li class="nav-item">
-                  <a class="nav-link" href="{{route('articles.index')}}">All Posts</a>
+                  <a class="nav-link" href="{{route('posts.index')}}">All Posts</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('account.all')}}">All Users</a>
@@ -48,6 +48,9 @@
                   <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
               </ul>
+
+              <li class="nav-item">
+<a href="{{route('posts.create')}}"><button class=" btn btn-primary" >create New POst</button></a>              </li>
     
         <div class="class container mt-5">
                 @include('inc.messeges')
