@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class Post extends Authenticatable
+class Post extends Model
 {
-    use Notifiable;
 
   public $table="posts" ;
  
@@ -20,7 +17,8 @@ class Post extends Authenticatable
 
 
     protected $casts = [
-        'id' => 'integer',   
+        'id' => 'integer', 
+        'user_id' => 'integer',  
         'title' => 'string',
         'slug' => 'string',
         'short_description' => 'string',
@@ -31,7 +29,7 @@ class Post extends Authenticatable
     ];
 
     protected $fillable = [
-     'id','title','slug','short_description','body','cover_pic','status','vote',
+     'id','user_id','title','slug','short_description','body','cover_pic','status','vote',
     ];
 
     /**

@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class Category extends Authenticatable
+class Category extends Model
 {
-    use Notifiable;
 
     public $table="categories" ;
 
@@ -40,7 +37,7 @@ class Category extends Authenticatable
 
     public function categoryJoin()
     {
-        return $this->hasMany('App\Models\CategoryJoin', 'category_id' , 'id');
+        return $this->belongsToMany('App\Models\CategoryJoin', 'category_id' , 'id');
     }
     
 }

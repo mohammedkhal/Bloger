@@ -2,14 +2,10 @@
 
 namespace App\Models;
 
-
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
 class PostReview extends Model
 {
-    use Notifiable;
 
     public $table="post_reviews" ;
 

@@ -2,14 +2,10 @@
 
 namespace App\Models;
 
-
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    use Notifiable;
 
     public $table="tags" ;
 
@@ -21,6 +17,7 @@ class Tag extends Model
        
     ];
 
+    public $timestamps = false;
 
     protected $fillable = [
         'id', 'tag_name' , 'slug', 'number_of_post' , 'created_at' , 'last_use' ,
