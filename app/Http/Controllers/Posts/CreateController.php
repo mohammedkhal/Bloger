@@ -8,24 +8,24 @@ use App\Services\PostService;
 
 class CreateController extends Controller
 {
-    protected $postservice;
+    protected $postService;
 
     public function __construct(PostService $postservice)
     {
-        $this->postservice = $postservice;
+        $this->postService = $postservice;
     }
    
 
 
     public function show()
     {
-        return view('postpages.show');
+        return view('postpages.store');
     }
 
     public function store(Request $request)
     {
 
-        $articals = $this->articalservice->store($request);
+        $articals = $this->postService->store($request);
         return  redirect()->back();
     }
 }
