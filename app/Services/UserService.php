@@ -12,13 +12,13 @@ class UserService {
      $this->user = $user ; 
     }
    
-    public function showUsers(){
+    public function show(){
        return  $this->user->show() ; 
     }
     
-    public function oneUser($username){
+    public function find($slug){
        
-      return  $this->user->showOne($username) ; 
+      return  $this->user->find($slug) ; 
    }
  
 }

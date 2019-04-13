@@ -19,10 +19,11 @@ class UserRepository {
         $user->website =   $attributes['website'] ;
         $user->country =   $attributes['country'] ;
         $user->username =   $attributes['username'] ;
-        $user->password = $attributes['password'] ;
+        $user->password = bcrypt( $attributes['password'] );
         $user->email =   $attributes['email'] ;
         $user->type =   $attributes['type'] ;
-   
+        $user->profile_pic =  $attributes['profile_pic'];
+      
         $user->save();
         auth('user')->login($user);
      
@@ -30,11 +31,11 @@ class UserRepository {
 
     public function show(){
       $user = $this->getModel();
-      return  $user->all() ; 
-    }
+      return  $user->all() ;
+  }
 
-    public function showOne($username){
+    public function find($slug){
       $user = $this->getModel();
-      return  $user->where('username' , $username )->first() ; 
+      return  $user->where('slug' , $slug )->first() ; 
     }
 }
