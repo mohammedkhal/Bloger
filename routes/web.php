@@ -54,10 +54,14 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard'], function () 
 
 });
 
+Route::group(['prefix' => 'user', 'namespace' => 'User'], function () {
+    Route::get('/', 'UserController@index')->name('user.all');
+    Route::get('/{slug}', 'UserController@find')->name('user.find');
+});
+
 Route::group(['prefix' => 'account', 'namespace' => 'Account'], function () {
-    Route::get('/{username}', 'EditController@showUser')->name('account.show');
-    Route::post('/', 'EditController@updateUser')->name('account.update');
-    Route::get('/', 'UserController@show')->name('account.all');
+    Route::post('/{slug}', 'UserEditeController@update')->name('account.update');
+    Route::get('/{slug}', 'UserEditeController@edite')->name('account.show');
 
 });
 
