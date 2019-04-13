@@ -15,10 +15,9 @@ class UserController extends Controller {
         $this->user = $user;
     }
     
-    public function allUser(){
+    public function show(){
 
-        $users =  $this->user->showUsers() ; 
-       // dd($users);
+        $users =  $this->user->show() ; 
         return view('pages.showUser' , compact('users')) ;
     }
       

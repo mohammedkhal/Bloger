@@ -15,11 +15,9 @@ class EditController extends Controller {
         $this->user = $user;
     }
 
-    public function showUser($username)
+    public function find($slug)
     {
-
-        $user =  $this->user->oneUser($username) ; 
-        //dd($user);
+        $user =  $this->user->find($slug) ; 
         return view('pages.readOneUser' , compact('user')) ;
     }
       
