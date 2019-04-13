@@ -17,29 +17,19 @@ class PostController extends Controller
    
     public function index()
     {
-        $posts = $this->postService->indexServices();
+        $posts = $this->postService->index();
         return view('pages.index ', compact('posts'));
     }
 
 
     public function show($slug)
     {
-
         $post = $this->postService->show($slug);
         return view('pages.read', compact('post'));
     }
 
-    public function tag(Request $request)
-    {
-
-        $posts = $this->postService->showTag($request);
-        return view('pages.index', compact('posts'));
-    }
-
-    public function profile()
-    {
-
-        $posts = $this->postService->showProfile();
-        return view('pages.profile', compact('posts'));
+    public function update(Request $request , $slug){
+        $this->postService->update($request, $slug);
+        return redirect()->back()->with('successfully updated');
     }
 }
