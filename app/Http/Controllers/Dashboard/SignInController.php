@@ -1,36 +1,33 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard ;
-use App\Services\SignupService ;
+namespace App\Http\Controllers\Dashboard;
+
+use App\Services\DashboardService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 
-class SessionsController extends Controller {
+class SignInController extends Controller
+{
+    public function __construct(DashboardService $auth)
+    {
+        $this->auth = $auth;
+    }
+    public function create()
+    {
+        return view('auth.admin_signin');
+    }
 
-       public function create()
-       {
-           return view('auth.admin_signin');
-       }
-       
-       public function store(Request $request)
-       {
-        if (!Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password]))
-           {  
-                return back()->withErrors([
-                   'message' => 'The email or password is incorrect, please try again'
-               ]);
-           }
-           
-           return redirect()->route('auth.sign-up');
-       }
-       
-       public function signout()
-       {
-        Auth::guard('admin')->logout();
-           return redirect()->route('signin.store');
-       }
+    public function auth(Request $request)
+    {
+        $this->auth->auth($request);
+        return redirect()->route('auth.sign-up');
+    }
 
+    public function signout()
+    {
+        $this->auth->signout();
 
-
+        return redirect()->route('signin.store');
+    }
 }
