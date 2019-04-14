@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
+use App\Services\AuthService ;
 use Illuminate\Http\Request;
 use Auth;
 
 class SignInController extends Controller {
 
+       public function __construct(AuthService $auth)
+       {
+           $this->auth = $auth;
+       }
 
 
        public function create()
@@ -14,14 +19,10 @@ class SignInController extends Controller {
            return view('auth.user_signin');
        }
        
-       public function store(Request $request)
+       public function auth(Request $request)
        {
-           if (!Auth::guard('user')->attempt(['username' => $request->username, 'password' => $request->password]) )
-            {   return back()->withErrors([
-                   'message' => 'The email or password is incorrect, please try again'
-               ]);
-           }
            
+                $this->auth->auth($request) ;
            return redirect()->route('posts.index');
        }
        
