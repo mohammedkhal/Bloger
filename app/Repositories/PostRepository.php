@@ -33,7 +33,6 @@ class PostRepository
     
 	public function store(array $attributes)
 	{
-
 		$post = $this->getModel();
 
 		$post->title = $attributes['title'];
