@@ -3,7 +3,6 @@
 namespace App\Repositories ; 
 
 use App\Models\User ;
-use phpDocumentor\Reflection\Types\Null_;
 
 class UserRepository {
 
