@@ -22,9 +22,9 @@ class CreateSigninOperationUsersTable extends Migration
             $table->string('device') ; 
             $table->string('browser') ;
             $table->string('operating_system') ; 
-            $table->timestamp('last_signin')->nullable() ; 
-            $table->timestamp('signin_at')->nullable() ; 
-            $table->timestamp('session_end_at')->nullable() ; 
+            $table->timestamp('signin')->nullable() ; 
+            $table->timestamp('signout')->nullable() ; 
+            $table->timestamp('expire')->nullable() ; 
             
         });
     }
