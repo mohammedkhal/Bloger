@@ -33,7 +33,7 @@ class AuthService
             'country' => strtolower(geoip()->getLocation($request->ip())->country),
             'browser' => strtolower($agent->browser()),
             'operating_system' => strtolower($agent->platform()),
-            'signin' => date("Y-m-d h:i:sa"),
+            'signin' => date("Y-m-d h:i:s"),
 
 
         ]);
