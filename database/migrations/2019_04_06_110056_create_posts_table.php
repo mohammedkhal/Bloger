@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
             $table->string('slug');
             $table->string('short_description');
             $table->string('body');
-            $table->integer('vote');
+            $table->integer('vote')->default(0)->change();
             $table->string('cover_pic')->default('noimag.jpg');
             $table->enum('status',['draft' , 'scheduled' , 'published','archived']);
             $table->timestamps();
