@@ -15,22 +15,22 @@ class PostRepository
 	}
 
 
-	
+
 	public function getAll()
 	{
 		$post = $this->getModel();
 		return $post->latest('id')->get();
 	}
 
-	
+
 	public function find($slug)
 	{
 		$post = $this->getModel();
-		return $post->where('slug',$slug)->first(); 
+		return $post->where('slug', $slug)->first();
 	}
 
 
-    
+
 	public function store(array $attributes)
 	{
 		$post = $this->getModel();
@@ -62,5 +62,13 @@ class PostRepository
 		}
 	}
 
+	public function edit($vote, $slug)
+	{
 
+		$post = $this->getModel();
+		$post = $post->where('slug', $slug)->first();
+		$post->vote= $vote ; 
+		$post->save() ; 
+		return $this->getAll();
+	}
 }
