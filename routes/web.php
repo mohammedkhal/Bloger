@@ -23,8 +23,6 @@ Route::group(['prefix' => 'posts', 'namespace' => 'Posts'], function () {
     Route::get('/create', 'CreateController@show')->name('posts.create');
     Route::post('/create', 'CreateController@store')->name('posts.create.store');
 
-    Route::get('/{slug}', 'PostController@show')->name('posts.post.show');
-
     Route::get('/{slug}/edit', 'EditController@find')->name('posts.post.edit');
     Route::post('/{slug}/edit', 'EditController@update')->name('posts.post.edit.update');
 
@@ -32,7 +30,9 @@ Route::group(['prefix' => 'posts', 'namespace' => 'Posts'], function () {
 
     Route::post('/{slug}/category', 'CaregoryController@show')->name('posts.post.category.show');
 
-    Route::post('/{slug}/vote', 'VoteController@update')->name('posts.post.vote.update');
+    Route::get('/{slug}/vote', 'VoteController@update')->name('posts.post.vote.update');
+
+    Route::get('/{slug}', 'PostController@show')->name('posts.post.show');
 });
 
 
