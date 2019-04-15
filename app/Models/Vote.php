@@ -12,12 +12,13 @@ class Vote extends Model
 
     protected $casts = [
         'id' => 'integer' , 
-        'user_id' => 'integer' , 
+        'user_id' => 'integer' ,
+        'post_id' => 'integer' , 
         'vote' => 'integer' , 
     ];
 
     protected $fillable = [
-        'id','user_id','vote'
+        'id','user_id','post_id','vote',
     ];
 
     protected $dates = [
