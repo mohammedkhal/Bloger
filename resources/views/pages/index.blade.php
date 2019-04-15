@@ -18,14 +18,19 @@
             <hr>
             <p>{{$post->short_description}}</p>
           </blockquote>
+
+         
+          <a href='{{route('posts.post.vote.update', ['slug' => $post->slug, 'vote' => 'up'])}}'><button>UpVote</button></a>
+          {{$post->vote}} <br>
+          <a href='{{route('posts.post.vote.update', ['slug' => $post->slug, 'vote' => 'down'])}}'><button>DownVote</button></a>
             
              <h3>tags : </h3>
              @foreach ($post->tagJoin as $tag)
-          {{$tag->tag->tag_name}}
-          @endforeach
+               {{$tag->tag->tag_name}}
+             @endforeach
              <h3>categories : </h3>
           @foreach ($post->categoryJoin as $category)
-          {{$category->category->category_name}}
+            {{$category->category->category_name}}
           @endforeach
         <footer class="blockquote-footer">Created By : <cite title="Source Title">{{ $post->user->first_name }}</cite></footer>
         <footer class="blockquote-footer">Created at : <cite title="Source Title">{{$post->created_at->ago()}}</cite></footer>
@@ -36,7 +41,7 @@
                
  
     <a href="{{route('posts.post.show' , ['slug' => $post->slug ]  )}}"><button class="btn  btn-info" > Show<i style="font-size:20px; " class="fas  fa-book-reader "></i>  </button> </a>
-    @if (Auth()->id() ==  $post->user_id)
+    @if (Auth('user')->id() ==  $post->user_id)
     <a href="{{route('posts.post.edit' , ['slug' => $post->slug ]  )}}"><button class="btn  btn-success" > Edit<i style="font-size:20px; " class="fas fa-edit "></i>
         </button> </a>             
     @endif
