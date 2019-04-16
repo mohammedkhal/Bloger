@@ -20,19 +20,20 @@ Route::get('/', function () {
 Route::group(['prefix' => 'posts', 'namespace' => 'Posts'], function () {
     Route::get('/', 'PostController@index')->name('posts.index');
 
-    Route::get('/create', 'CreateController@show')->name('posts.create');
+    Route::get('/create', 'CreateController@create')->name('posts.create');
     Route::post('/create', 'CreateController@store')->name('posts.create.store');
-
-    Route::get('/{slug}/edit', 'EditController@find')->name('posts.post.edit');
-    Route::post('/{slug}/edit', 'EditController@update')->name('posts.post.edit.update');
 
     Route::post('/{slug}/reviews', 'ReviewController@show')->name('posts.post.review.show');
 
-    Route::post('/{slug}/category', 'CaregoryController@show')->name('posts.post.category.show');
+    Route::post('/{slug}/category', 'CategoryController@show')->name('posts.post.category.show');
 
     Route::get('/{slug}/vote', 'VoteController@update')->name('posts.post.vote.update');
 
+    Route::get('/{slug}/edit', 'PostController@edit')->name('posts.post.edit');
+    Route::post('/{slug}/edit', 'PostController@update')->name('posts.post.edit.update');
     Route::get('/{slug}', 'PostController@show')->name('posts.post.show');
+
+
 });
 
 
@@ -50,15 +51,18 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard'], function () 
     Route::post('/', 'AdminController@dashboard')->name('index');
     Route::get('auth/sign-in', 'SignInController@create')->name('signin');
     Route::post('auth/sign-in', 'SignInController@auth')->name('signin.store');
-    Route::get('auth/sign-out', 'SignInController@signout')->name('signout');
+    Route::get('auth/sign-out', 'SignInController@signOut')->name('signout');
 });
 
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function () {
-    Route::get('/', 'UserController@index')->name('user.all');
-    Route::get('/{slug}', 'UserController@find')->name('user.find');
+    Route::get('/', 'UserController@index')->name('user.index');
+    Route::get('/{slug}', 'UserController@show')->name('users.user.show');
 });
 
 Route::group(['prefix' => 'account', 'namespace' => 'Account'], function () {
-    Route::post('/{slug}', 'UserEditeController@update')->name('account.update');
-    Route::get('/{slug}', 'UserEditeController@edite')->name('account.show');
+    Route::post('/{slug}', 'UserEditController@update')->name('account.update');
+    Route::get('/{slug}', 'UserEditController@edit')->name('account.show');
+
+    Route::get('/{slug}/edit', 'EditController@edit')->name('accounts.account.edit');
+    Route::post('/{slug}/edit', 'EditController@update')->name('accounts.account.edit.update');
 });
