@@ -36,7 +36,7 @@ class AuthService
         return  $this->SinginOperationUserRepository->store($data);
     }
 
-    public function signOut()
+    public function signout()
     {
         return Auth::guard('user')->signout();
     }

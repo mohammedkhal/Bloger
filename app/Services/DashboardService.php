@@ -19,7 +19,7 @@ class DashboardService
     public function auth(Request $request)
     {
         $agent = new Agent();
-        
+
         if (!Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password])) {
             return false;
         }
@@ -38,7 +38,6 @@ class DashboardService
 
     public function signout()
     {
-        if (Auth::guard('admin')->logout())
-            return true;
+        Auth::guard('admin')->logout();
     }
 }
