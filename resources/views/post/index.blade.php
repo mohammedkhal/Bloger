@@ -6,20 +6,16 @@
     <div class="col-md-8">
 @foreach ($posts as $post)
 <div class="card mt-3 ">
-
         <div class="card-header bg-primary">
           {{$post->title}}
         </div>
-        <div class="card-body">
-        
-       
+        <div class="card-body">   
           <blockquote class="blockquote mb-0">
             <p>{{$post->body}}</p>
             <hr>
             <p>{{$post->short_description}}</p>
           </blockquote>
 
-         
           <a href='{{route('posts.post.vote.update', ['slug' => $post->slug, 'vote' => 'up'])}}'><button>UpVote</button></a>
           {{$post->vote}} <br>
           <a href='{{route('posts.post.vote.update', ['slug' => $post->slug, 'vote' => 'down'])}}'><button>DownVote</button></a>
@@ -35,18 +31,13 @@
         <footer class="blockquote-footer">Created By : <cite title="Source Title">{{ $post->user->first_name }}</cite></footer>
         <footer class="blockquote-footer">Created at : <cite title="Source Title">{{$post->created_at->ago()}}</cite></footer>
       </div>
-       
-          
-        <div class="card-footer">
-               
- 
+     
+        <div class="card-footer"> 
     <a href="{{route('posts.post.show' , ['slug' => $post->slug ]  )}}"><button class="btn  btn-info" > Show<i style="font-size:20px; " class="fas  fa-book-reader "></i>  </button> </a>
     @if (Auth('user')->id() ==  $post->user_id)
     <a href="{{route('posts.post.edit' , ['slug' => $post->slug ]  )}}"><button class="btn  btn-success" > Edit<i style="font-size:20px; " class="fas fa-edit "></i>
         </button> </a>             
     @endif
-
-          
         </div>
       </div>
       @endforeach

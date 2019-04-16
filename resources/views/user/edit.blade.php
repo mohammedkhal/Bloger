@@ -50,10 +50,8 @@
               <option value="user" >User</option>
               <option value="writer" >Write</option>
             </select>
-          </div>
-         
+          </div> 
         </div>
-        
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 

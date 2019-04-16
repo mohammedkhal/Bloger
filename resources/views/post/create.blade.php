@@ -2,7 +2,7 @@
 @section('content')
 
 <form action="{{route('posts.create.store')}}" method="post">
-@csrf
+   @csrf
 
  Title : <input type="text" name="title"> <br>
  short_description : <input type="text" name="short_description"> <br>
@@ -17,17 +17,14 @@
   <label class="form-check-label" for="materialInline1">Programming</label>
 </div>
 
-
 <div class="form-check form-check-inline">
   <input type="checkbox" class="form-check-input" name="category[]" id="materialInline3" value="2">
   <label class="form-check-label" for="materialInline3">Sport</label>
 </div>
 
-
 Tags :
 <input type="text" name="tag">
 <small>enter the tags seprete by ","</small>
-
  
 <button type="submit" class="btn btn-primary">Submit</button>
 
