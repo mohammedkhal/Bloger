@@ -27,6 +27,5 @@ class SignInController extends Controller
         } else {
             return redirect()->route('auth.sign-in')->with('message','username or password are not correct');
         }
-        return redirect()->route('posts.index');
     }
 }
