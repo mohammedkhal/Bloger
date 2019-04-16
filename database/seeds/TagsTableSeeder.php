@@ -22,19 +22,19 @@ class TagsTableSeeder extends Seeder
             'slug' => "freedom",
         ]);
 
-        
+
         DB::table('tags')->insert([
             'tag_name' => "dareebhtech",
             'slug' => "dareebhtech",
         ]);
 
-        
+
         DB::table('tags')->insert([
             'tag_name' => "icecream",
             'slug' => "icecream",
         ]);
 
-        
+
         DB::table('tags')->insert([
             'tag_name' => "helloworld",
             'slug' => "helloworld",
