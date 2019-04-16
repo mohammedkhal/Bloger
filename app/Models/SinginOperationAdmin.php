@@ -22,15 +22,15 @@ class SinginOperationAdmin extends Model
 
     protected $fillable = [
         'id', 'admin_id' , 'ip', 'country', 'device_type' ,
-        'browser' , 'operating_system' , 'signout' , 'signin' , 'expire' 
+        'browser' , 'operating_system' , 'signout_at' , 'signin_at' , 'expire_at' 
     ];
 
     public $timestamps = false;
     
     protected $dates = [
-        'signout',
-        'signin',
-        'expire',
+        'signout_at',
+        'signin_at',
+        'expire_at',
     ];
 
   

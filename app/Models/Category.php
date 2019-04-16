@@ -21,7 +21,7 @@ class Category extends Model
 
     protected $fillable = [
      'id','category_name','slug','cover',
-     'number_of_posts','last_use','created_at', 'vote_sum'
+     'number_of_posts','last_use_at','created_at', 'vote_sum'
     ];
 
     /**
@@ -32,7 +32,7 @@ class Category extends Model
     
     protected $dates = [
         'created_at',
-        'last_use',
+        'last_use_at',
     ];
 
     public function categoryJoin()

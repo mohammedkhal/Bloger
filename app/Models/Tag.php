@@ -20,13 +20,13 @@ class Tag extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id', 'tag_name' , 'slug', 'number_of_post' , 'created_at' , 'last_use' ,
+        'id', 'tag_name' , 'slug', 'number_of_post' , 'created_at' , 'last_use_at' ,
     ];
 
     
     protected $dates = [
         'created_at',
-        'last_use',
+        'last_use_at',
     ];
 
     public function tagJoin()

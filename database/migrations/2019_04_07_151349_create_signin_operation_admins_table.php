@@ -22,9 +22,9 @@ class CreateSigninOperationAdminsTable extends Migration
             $table->string('device') ; 
             $table->string('browser') ;
             $table->string('operating_system') ; 
-            $table->timestamp('signin')->nullable() ; 
-            $table->timestamp('signout')->nullable() ; 
-            $table->timestamp('expire')->nullable() ; 
+            $table->timestamp('signin_at')->nullable() ; 
+            $table->timestamp('signout_at')->nullable() ; 
+            $table->timestamp('expire_at')->nullable() ; 
 
         });
     }
