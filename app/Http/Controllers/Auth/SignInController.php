@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 
 class SignInController extends Controller
 {
-
+    protected $authService;
+    
     public function __construct(AuthService $authService)
     {
-        $this->auth = $authService;
+        $this->authService = $authService;
     }
 
     public function create()
@@ -20,8 +21,12 @@ class SignInController extends Controller
     }
 
     public function auth(Request $request)
-    {
-        $this->auth->signin($request);
+    {   
+        if ($this->authService->signin($request)) {
+            return redirect()->route('posts.index');
+        } else {
+            return redirect()->route('auth.sign-in')->with('message','username or password are not correct');
+        }
         return redirect()->route('posts.index');
     }
 }

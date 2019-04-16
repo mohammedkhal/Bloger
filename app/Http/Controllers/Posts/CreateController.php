@@ -7,6 +7,8 @@ use App\Services\PostService;
 
 class CreateController extends Controller
 {
+    protected $postService;
+
     public function __construct(PostService $postService)
     {
         $this->postService = $postService;

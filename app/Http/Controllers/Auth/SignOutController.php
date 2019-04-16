@@ -3,20 +3,21 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Auth;
+use App\Services\AuthService;
+
 class SignOutController extends Controller
 {
+    protected $authService;
+
     public function __construct(AuthService $authService)
     {
-        $this->auth = $authService;
+        $this->authService = $authService;
     }
 
     public function signOut()
     {
-        $this->auth->signout();
-        Auth::guard('user')->logout();         
-        return redirect()->route('');       
+        $this->authService->signOut();
+        return redirect()->route('auth.sign-in');       
     }
 
     

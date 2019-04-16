@@ -8,14 +8,16 @@ use App\Services\VoteService;
 
 class VoteController extends Controller
 {
+    protected $voteService;
+
     public function __construct(VoteService $voteService)
     {
-        $this->vote = $voteService;
+        $this->voteService = $voteService;
     }
 
     public function update(Request $request)
     {
-        $this->vote->update($request);
+        $this->voteService->update($request);
         return redirect()->route('posts.index');
     }
 }

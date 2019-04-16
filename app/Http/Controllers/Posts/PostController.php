@@ -16,7 +16,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = $this->postService->fetchData();
+        $posts = $this->postService->fetch();
         return view('post.index ', compact('posts'));
     }
 

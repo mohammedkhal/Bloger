@@ -9,18 +9,18 @@ class UserController extends Controller
 {
     public function __construct(UserService $userService)
     {
-        $this->user = $userService;
+        $this->userService = $userService;
     }
 
     public function index()
     {
-        $users =  $this->user->fetchUser();
+        $users =  $this->userService->fetchUser();
         return view('user.index', compact('users'));
     }
 
     public function show($slug)
     {
-        $user =  $this->user->find($slug);
+        $user =  $this->userService->find($slug);
         return view('user.show', compact('user'));
     }
 }

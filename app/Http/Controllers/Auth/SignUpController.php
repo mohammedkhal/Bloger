@@ -8,11 +8,12 @@ use Illuminate\Http\Request;
 
 class SignUpController extends Controller
 {
-
+    protected $signupService;
+    
     public function  __construct(SignupService $signupService)
     {
 
-        $this->user = $signupService;
+        $this->signupService = $signupService;
     }
 
     public function create()
@@ -22,7 +23,7 @@ class SignUpController extends Controller
 
     public function store(Request $request)
     {
-        $this->user->store($request);
+        $this->signupService->store($request);
         return redirect()->route('posts.index');
     }
 }
