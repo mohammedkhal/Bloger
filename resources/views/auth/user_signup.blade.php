@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
 <h3>user sign up  @-@</h3>
 <hr>
 <form action="{{route('auth.sign-up.store')}}" method="POST" enctype="multipart/form-data">
@@ -23,8 +22,6 @@
           <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
           <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
       </div>
-
-
         <div class="form-group">
           <label for="inputAddress">user name</label>
           <input type="text" class="form-control" id="" name="username">
@@ -52,10 +49,8 @@
               <option value="user" >User</option>
               <option value="writer" >Write</option>
             </select>
-          </div>
-         
-        </div>
-        
+          </div>      
+        </div> 
         <button type="submit" class="btn btn-primary">Sign up</button>
       </form>
 

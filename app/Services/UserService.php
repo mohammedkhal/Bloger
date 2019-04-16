@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class UserService
 {
+  protected $userRepository;
+  
   public function  __construct(UserRepository $userRepository)
   {
     $this->userRepository = $userRepository;
@@ -14,12 +16,12 @@ class UserService
 
   public function fetchUser()
   {
-    return  $this->user->fetch();
+    return  $this->userRepository->fetch();
   }
 
   public function find($slug)
   {
-    return $this->user->find($slug);
+    return $this->userRepository->find($slug);
   }
 
   public function update($slug, Request $request)
@@ -38,7 +40,6 @@ class UserService
     $request->avatar->storeAs('avatars', $avatarName);
     $attributes = $request->all();
     $attributes['profile_pic'] = $avatarName;
-
-    return  $this->user->update($slug, $attributes);
+    return  $this->userRepository->update($slug, $attributes);
   }
 }

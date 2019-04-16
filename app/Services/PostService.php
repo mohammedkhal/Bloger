@@ -12,11 +12,16 @@ use Illuminate\Support\Facades\Auth;
 
 class PostService
 {
+	protected $postRepository;
+	protected $tagRepository;
+	protected $tagJoinRepository;
+	protected $categoryJoinRepository;
+
 	public function __construct(PostRepository $postRepository, CategoryJoinsRepository $categoryJoinRepository, TagRepository $tagRepository, TagJoinRepository $tagJoinRepository)
 	{
 		$this->postRepository = $postRepository;
 		$this->tagRepository = $tagRepository;
-		$this->tagJoinRepositoryJoin = $tagJoinRepository;
+		$this->tagJoinRepository = $tagJoinRepository;
 		$this->categoryJoinRepository = $categoryJoinRepository;
 	}
 
@@ -25,7 +30,7 @@ class PostService
 	 * 
 	 * @return collection
 	 */
-	public function fetchData()
+	public function fetch()
 	{
 		return $this->postRepository->fetch();
 	}
@@ -56,7 +61,7 @@ class PostService
 		}
 
 		foreach ($tags as $tag) {
-			$newTag = $this->tagJoinRepositoryJoin->store($tag,  $post->id);
+			$newTag = $this->tagJoinRepository->store($tag,  $post->id);
 		}
 
 		foreach ($attributes['category'] as $category) {
@@ -77,8 +82,7 @@ class PostService
 
 		$attributes = $request->all();
 		$attributes['user_id'] =  Auth::guard('user')->id();
-		$this->categoryJoin->update($attributes);
-
+		$this->categoryJoinRepository->update($attributes);
 		return $this->postRepository->update($attributes, $slug);
 	}
 }

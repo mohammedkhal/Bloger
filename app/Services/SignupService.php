@@ -4,9 +4,12 @@ namespace App\Services;
 
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
+use Auth;
 
 class SignupService
 {
+    protected $userRepository;
+
     public function  __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
@@ -30,6 +33,7 @@ class SignupService
         $request->avatar->storeAs('avatars', $avatarName);
         $attributes = $request->all();
         $attributes['profile_pic'] = $avatarName;
-        $this->user->store($attributes);
+        $user = $this->userRepository->store($attributes);
+        auth('user')->login($user);
     }
 }

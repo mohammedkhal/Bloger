@@ -9,6 +9,8 @@ use Auth;
 
 class DashboardService
 {
+    protected $SinginOperationAdminRepository;
+
     public function  __construct(SinginOperationAdminRepository $SinginOperationAdminRepository)
     {
         $this->SinginOperationAdminRepository = $SinginOperationAdminRepository;
@@ -17,6 +19,7 @@ class DashboardService
     public function auth(Request $request)
     {
         $agent = new Agent();
+        
         if (!Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password])) {
             return false;
         }

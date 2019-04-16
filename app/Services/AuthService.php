@@ -9,15 +9,17 @@ use Auth;
 
 class AuthService
 {
+    protected $SinginOperationUserRepository;
+    
     public function  __construct(SinginOperationUserRepository $SinginOperationUserRepository)
     {
-
         $this->SinginOperationUserRepository = $SinginOperationUserRepository;
     }
 
     public function auth(Request $request)
     {
         $agent = new Agent();
+
         if (!Auth::guard('user')->attempt(['username' => $request->username, 'password' => $request->password])) {
             return false;
         }
@@ -32,5 +34,10 @@ class AuthService
             'signin' => date("Y-m-d h:i:s"),
         ];
         return  $this->SinginOperationUserRepository->store($data);
+    }
+
+    public function signOut()
+    {
+        return Auth::guard('user')->signout();
     }
 }
