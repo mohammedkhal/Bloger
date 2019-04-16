@@ -13,7 +13,6 @@ class VoteService
     protected $voteRepository;
     protected $postRepository;
 
-
     public function  __construct(VoteRepository $voteRepository, PostRepository $postRepository)
     {
         $this->voteRepository = $voteRepository;

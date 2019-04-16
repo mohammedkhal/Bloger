@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Posts;
 use App\Http\Controllers\Controller;
 use App\Services\PostService;
 
-class PostController extends Controller
+class IndexController extends Controller
 {
     protected $postService;
 
@@ -13,9 +13,9 @@ class PostController extends Controller
         $this->postService = $postService;
     }
 
-    public function show($slug)
+    public function index()
     {
-        $post = $this->postService->show($slug);
-        return view('post.show', compact('post'));
+        $posts = $this->postService->fetch();
+        return view('post.index ', compact('posts'));
     }
 }
