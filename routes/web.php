@@ -32,10 +32,7 @@ Route::group(['prefix' => 'posts', 'namespace' => 'Posts'], function () {
     Route::get('/{slug}/edit', 'PostController@edit')->name('posts.post.edit');
     Route::post('/{slug}/edit', 'PostController@update')->name('posts.post.edit.update');
     Route::get('/{slug}', 'PostController@show')->name('posts.post.show');
-
-
 });
-
 
 Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
     Route::get('/sign-up', 'SignUpController@create')->name('auth.sign-up');
@@ -51,7 +48,8 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard'], function () 
     Route::post('/', 'AdminController@dashboard')->name('index');
     Route::get('auth/sign-in', 'SignInController@create')->name('signin');
     Route::post('auth/sign-in', 'SignInController@auth')->name('signin.store');
-    Route::get('auth/sign-out', 'SignInController@signOut')->name('signout');
+
+    Route::get('auth/sign-out', 'SignOutController@signOut')->name('signout');
 });
 
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function () {
@@ -60,8 +58,7 @@ Route::group(['prefix' => 'user', 'namespace' => 'User'], function () {
 });
 
 Route::group(['prefix' => 'account', 'namespace' => 'Account'], function () {
-    Route::post('/{slug}', 'UserEditController@update')->name('account.update');
-    Route::get('/{slug}', 'UserEditController@edit')->name('account.show');
+    Route::get('/{slug}', 'EditController@show')->name('account.show');
 
     Route::get('/{slug}/edit', 'EditController@edit')->name('accounts.account.edit');
     Route::post('/{slug}/edit', 'EditController@update')->name('accounts.account.edit.update');
