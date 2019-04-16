@@ -41,7 +41,7 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
     Route::get('/sign-in', 'SignInController@create')->name('auth.sign-in');
     Route::post('/sign-in', 'SignInController@auth')->name('auth.sign-in.auth');
 
-    Route::get('/sign-out', 'SignOutController@signOut')->name('auth.sign-out.auth');
+    Route::get('/sign-out', 'SignOutController@signout')->name('auth.sign-out.auth');
 });
 
 Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard'], function () {
@@ -49,7 +49,7 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard'], function () 
     Route::get('auth/sign-in', 'SignInController@create')->name('signin');
     Route::post('auth/sign-in', 'SignInController@auth')->name('signin.store');
 
-    Route::get('auth/sign-out', 'SignOutController@signOut')->name('signout');
+    Route::get('auth/sign-out', 'SignOutController@signout')->name('signout');
 });
 
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function () {

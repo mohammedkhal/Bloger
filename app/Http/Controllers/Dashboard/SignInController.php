@@ -28,7 +28,7 @@ class SignInController extends Controller
         }
     }
 
-    public function signOut()
+    public function signout()
     {
         $this->dashboardService->signout();
         return redirect()->route('signin');
