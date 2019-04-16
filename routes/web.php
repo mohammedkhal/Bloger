@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 
 Route::group(['prefix' => 'posts', 'namespace' => 'Posts'], function () {
-    Route::get('/', 'PostController@index')->name('posts.index');
+    Route::get('/', 'IndexController@index')->name('posts.index');
 
     Route::get('/create', 'CreateController@create')->name('posts.create');
     Route::post('/create', 'CreateController@store')->name('posts.create.store');
@@ -29,8 +29,8 @@ Route::group(['prefix' => 'posts', 'namespace' => 'Posts'], function () {
 
     Route::get('/{slug}/vote', 'VoteController@update')->name('posts.post.vote.update');
 
-    Route::get('/{slug}/edit', 'PostController@edit')->name('posts.post.edit');
-    Route::post('/{slug}/edit', 'PostController@update')->name('posts.post.edit.update');
+    Route::get('/{slug}/edit', 'EditController@edit')->name('posts.post.edit');
+    Route::post('/{slug}/edit', 'EditController@update')->name('posts.post.edit.update');
     Route::get('/{slug}', 'PostController@show')->name('posts.post.show');
 });
 
@@ -41,7 +41,7 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
     Route::get('/sign-in', 'SignInController@create')->name('auth.sign-in');
     Route::post('/sign-in', 'SignInController@auth')->name('auth.sign-in.auth');
 
-    Route::get('/sign-out', 'SignOutController@signout')->name('auth.sign-out.auth');
+    Route::get('/sign-out', 'SignOutController@signOut')->name('auth.sign-out.auth');
 });
 
 Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard'], function () {
@@ -49,7 +49,7 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard'], function () 
     Route::get('auth/sign-in', 'SignInController@create')->name('signin');
     Route::post('auth/sign-in', 'SignInController@auth')->name('signin.store');
 
-    Route::get('auth/sign-out', 'SignOutController@signout')->name('signout');
+    Route::get('auth/sign-out', 'SignOutController@signOut')->name('signout');
 });
 
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function () {

@@ -14,9 +14,9 @@ class SignOutController extends Controller
         $this->authService = $authService;
     }
 
-    public function signout()
+    public function signOut()
     {
-        $this->authService->signout();
+        $this->authService->signOut();
         return redirect()->route('auth.sign-in');       
     }
 
