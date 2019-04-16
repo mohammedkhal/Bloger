@@ -14,15 +14,13 @@ class CategoryJoinsRepository
   }
 
 
-  public function store(array $attributes)
+  public function store($category, $post_id )
   {
-    $array =$attributes['category'];
-    foreach($array as $category){
       $categoryObj = $this->getModel() ;
       $categoryObj->category_id = $category ;
-      $categoryObj->post_id = $attributes['post_id'] ;
+      $categoryObj->post_id = $post_id ;
       $categoryObj->save();
-    }
+    
     return $categoryObj ;
   }
   
