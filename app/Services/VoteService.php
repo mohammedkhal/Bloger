@@ -36,7 +36,7 @@ class VoteService
         ];
 
         $this->voteRepository->update($data);
-        $votes = getVote($post_id);
+        $votes = $this->voteRepository->getVote($post_id);
         return $this->postRepository->updateVote($votes, $request->slug);
         
     }
