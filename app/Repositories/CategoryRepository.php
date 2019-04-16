@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Repositories;
+
 use App\Models\Category;
-use Illuminate\Http\Request;
+
 class CategoryRepository
 {
-    protected $categoryJoin ;
+  protected $categoryJoinRepository;
+
   public function getModel()
   {
-  return new Category ;
+    return new Category;
   }
-  
 }

@@ -2,30 +2,24 @@
 namespace App\Http\Controllers\Posts;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Services\PostService;
 
 class CreateController extends Controller
 {
-    protected $postService;
-
-    public function __construct(PostService $postservice)
+    public function __construct(PostService $postService)
     {
-        $this->postService = $postservice;
+        $this->postService = $postService;
     }
-   
 
-
-    public function show()
+    public function create()
     {
-        return view('postpages.store');
+        return view('post.create');
     }
 
     public function store(Request $request)
     {
-
-        $articals = $this->postService->store($request);
-        return  redirect()->back();
+        $this->postService->store($request);
+        return  redirect()->route('posts.index');
     }
 }

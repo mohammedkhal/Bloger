@@ -9,24 +9,20 @@ use Auth;
 
 class AuthService
 {
-
-
-    public function  __construct(SinginOperationUserRepository $SinginOperationUser)
+    public function  __construct(SinginOperationUserRepository $SinginOperationUserRepository)
     {
 
-        $this->SinginOperationUser = $SinginOperationUser;
+        $this->SinginOperationUserRepository = $SinginOperationUserRepository;
     }
 
     public function auth(Request $request)
     {
         $agent = new Agent();
         if (!Auth::guard('user')->attempt(['username' => $request->username, 'password' => $request->password])) {
-            return back()->withErrors([
-                'message' => 'The email or password is incorrect, please try again'
-            ]);
+            return false;
         }
 
-        $data = ([
+        $data = [
             'user_id' => auth('user')->id(),
             'ip' =>  $request->ip(),
             'device' => strtolower($agent->device()),
@@ -34,9 +30,7 @@ class AuthService
             'browser' => strtolower($agent->browser()),
             'operating_system' => strtolower($agent->platform()),
             'signin' => date("Y-m-d h:i:s"),
-
-
-        ]);
-        return  $this->SinginOperationUser->userAgent($data);
+        ];
+        return  $this->SinginOperationUserRepository->store($data);
     }
 }

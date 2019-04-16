@@ -6,7 +6,8 @@ use App\Models\Vote;
 
 class VoteRepository
 {
-    protected $vote;
+    protected $voteRepository;
+    
     public  function getModel()
     {
         return new  Vote;

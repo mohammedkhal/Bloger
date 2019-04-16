@@ -6,14 +6,14 @@ use App\Models\SinginOperationUser;
 
 class SinginOperationUserRepository
 {
-    protected $SinginOperationUser;
+    protected $SinginOperationUserRepository;
 
     public function getModel()
     {
         return new SinginOperationUser;
     }
 
-    public function userAgent($data)
+    public function store($data)
     {
         $SinginOperationUser = $this->getModel();
         $SinginOperationUser->user_id = $data['user_id'];
@@ -23,8 +23,6 @@ class SinginOperationUserRepository
         $SinginOperationUser->browser = $data['browser'];
         $SinginOperationUser->signin = $data['signin'];
         $SinginOperationUser->operating_system = $data['operating_system'];
-        if ($SinginOperationUser->save()) {
-            return true;
-        }
+        return $SinginOperationUser->save();
     }
 }

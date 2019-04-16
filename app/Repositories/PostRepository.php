@@ -3,33 +3,27 @@
 namespace App\Repositories;
 
 use App\Models\Post;
-//use Illuminate\Support\Facades\Auth;
+
 class PostRepository
 {
-
-	protected $post;
+	protected $postRepository;
 
 	public function getModel()
 	{
 		return new Post;
 	}
 
-
-
-	public function getAll()
+	public function fetch()
 	{
 		$post = $this->getModel();
 		return $post->latest('id')->get();
 	}
-
 
 	public function find($slug)
 	{
 		$post = $this->getModel();
 		return $post->where('slug', $slug)->first();
 	}
-
-
 
 	public function store(array $attributes)
 	{
@@ -62,13 +56,11 @@ class PostRepository
 		}
 	}
 
-	public function edit($vote, $slug)
+	public function updateVote($vote, $slug)
 	{
-
 		$post = $this->getModel();
 		$post = $post->where('slug', $slug)->first();
-		$post->vote= $vote ; 
-		$post->save() ; 
-		return $this->getAll();
+		$post->vote = $vote;
+		return  $post->save();
 	}
 }

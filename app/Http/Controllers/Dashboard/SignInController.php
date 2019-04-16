@@ -5,13 +5,12 @@ namespace App\Http\Controllers\Dashboard;
 use App\Services\DashboardService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Auth;
 
 class SignInController extends Controller
 {
-    public function __construct(DashboardService $auth)
+    public function __construct(DashboardService $dashboardService)
     {
-        $this->auth = $auth;
+        $this->auth = $dashboardService;
     }
     public function create()
     {
@@ -24,10 +23,9 @@ class SignInController extends Controller
         return redirect()->route('auth.sign-up');
     }
 
-    public function signout()
+    public function signOut()
     {
         $this->auth->signout();
-
         return redirect()->route('signin.store');
     }
 }

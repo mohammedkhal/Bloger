@@ -4,20 +4,17 @@ namespace App\Services;
 
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
-use Auth;
 
 class UserService
 {
-
-  protected $user;
-  public function  __construct(UserRepository $user)
+  public function  __construct(UserRepository $userRepository)
   {
-    $this->user = $user;
+    $this->userRepository = $userRepository;
   }
 
-  public function index()
+  public function fetchUser()
   {
-    return  $this->user->index();
+    return  $this->user->fetch();
   }
 
   public function find($slug)
