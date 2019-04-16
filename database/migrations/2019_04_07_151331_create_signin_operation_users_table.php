@@ -17,15 +17,14 @@ class CreateSigninOperationUsersTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('ip') ; 
-            $table->string('country') ; 
-            $table->string('device') ; 
-            $table->string('browser') ;
-            $table->string('operating_system') ; 
-            $table->timestamp('signin_at')->nullable() ; 
-            $table->timestamp('signout_at')->nullable() ; 
-            $table->timestamp('expire_at')->nullable() ; 
-            
+            $table->string('ip');
+            $table->string('country');
+            $table->string('device');
+            $table->string('browser');
+            $table->string('operating_system');
+            $table->timestamp('signin_at')->nullable();
+            $table->timestamp('signout_at')->nullable();
+            $table->timestamp('expire_at')->nullable();
         });
     }
 

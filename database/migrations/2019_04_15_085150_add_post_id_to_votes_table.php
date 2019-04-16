@@ -27,7 +27,7 @@ class AddPostIdToVotesTable extends Migration
     public function down()
     {
         Schema::table('votes', function (Blueprint $table) {
-            $table->dropColumn('post_id') ;
+            $table->dropColumn('post_id');
         });
     }
 }

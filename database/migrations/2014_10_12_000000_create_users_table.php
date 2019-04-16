@@ -13,24 +13,23 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-            Schema::create('users', function (Blueprint $table) {
-                $table->bigIncrements('id');
-                $table->string('first_name');
-                $table->string('second_name');
-                $table->string('third_name');
-                $table->string('username')->unique();
-                $table->string('password');
-                $table->string('email');
-                $table->string('country')->nullable();
-                $table->string('account')->nullable();
-                $table->string('website')->nullable();
-                $table->string('profile_pic')->default('noimage.jpg');
-                $table->integer('vote')->default(0);
-                $table->enum('status',['active' , 'inactive' ,'blocked']);
-                $table->enum('type',['user' , 'writer']);
-                $table->timestamps();
-            });
-     
+        Schema::create('users', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('first_name');
+            $table->string('second_name');
+            $table->string('third_name');
+            $table->string('username')->unique();
+            $table->string('password');
+            $table->string('email');
+            $table->string('country')->nullable();
+            $table->string('account')->nullable();
+            $table->string('website')->nullable();
+            $table->string('profile_pic')->default('noimage.jpg');
+            $table->integer('vote')->default(0);
+            $table->enum('status', ['active', 'inactive', 'blocked']);
+            $table->enum('type', ['user', 'writer']);
+            $table->timestamps();
+        });
     }
 
     /**
