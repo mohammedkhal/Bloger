@@ -6,8 +6,6 @@ use App\Models\Vote;
 
 class VoteRepository
 {
-    protected $voteRepository;
-    
     public  function getModel()
     {
         return new  Vote;
@@ -20,8 +18,11 @@ class VoteRepository
             ['post_id' => $data['post_id'], 'user_id' => $data['user_id']],
             ['vote' => $data['voteStatus']]
         );
-        $vote = $vote->where('post_id' , $data['post_id'] )->sum('vote');
-
-        return $vote ;
+        return $vote;
+    }
+    public function getVote($post_id)
+    {
+        $vote = $this->getModel();
+        return $vote->where('post_id', $post_id)->sum('vote');
     }
 }

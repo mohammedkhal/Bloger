@@ -6,8 +6,6 @@ use App\Models\User;
 
 class UserRepository
 {
-  protected $userRepository;
-
   public  function getModel()
   {
     return new  User;
@@ -26,9 +24,8 @@ class UserRepository
     $user->email =   $attributes['email'];
     $user->type =   $attributes['type'];
     $user->profile_pic =  $attributes['profile_pic'];
-
     $user->save();
-    auth('user')->login($user);
+    return $user;
   }
 
   public function fetch()

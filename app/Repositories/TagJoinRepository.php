@@ -6,8 +6,6 @@ use App\Models\TagJoin;
 
 class TagJoinRepository
 {
-    protected $tagJoin;
-
     public  function getModel()
     {
         return new  TagJoin;
@@ -18,6 +16,6 @@ class TagJoinRepository
         $tagJoinObj = $this->getModel();
         $tagJoinObj->post_id = $post_id;
         $tagJoinObj->tag_id = $tag_id;
-        $tagJoinObj->save();
+        return $tagJoinObj->save();
     }
 }

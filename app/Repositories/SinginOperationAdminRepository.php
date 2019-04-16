@@ -6,8 +6,6 @@ use App\Models\SinginOperationAdmin;
 
 class SinginOperationAdminRepository
 {
-    protected $SinginOperationAdminRepository;
-
     public function getModel()
     {
         return new SinginOperationAdmin;
@@ -23,7 +21,6 @@ class SinginOperationAdminRepository
         $SinginOperationAdmin->browser = $data['browser'];
         $SinginOperationAdmin->signin = $data['signin'];
         $SinginOperationAdmin->operating_system = $data['operating_system'];
-
         return $SinginOperationAdmin->save();
     }
 }

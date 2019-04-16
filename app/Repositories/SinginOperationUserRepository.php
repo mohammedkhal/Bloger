@@ -6,8 +6,6 @@ use App\Models\SinginOperationUser;
 
 class SinginOperationUserRepository
 {
-    protected $SinginOperationUserRepository;
-
     public function getModel()
     {
         return new SinginOperationUser;
