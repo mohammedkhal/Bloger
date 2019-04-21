@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard\Auth;
 
 use App\Services\DashboardService;
 use App\Http\Controllers\Controller;
@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class SignInController extends Controller
 {
-    protected $dashboardService;
+    private $dashboardService;
 
     public function __construct(DashboardService $dashboardService)
     {
@@ -21,16 +21,23 @@ class SignInController extends Controller
 
     public function auth(Request $request)
     {
-        if ($this->dashboardService->auth($request)) {
+        $data = $request->only(
+            'username',
+            'password',
+            'ip',
+            'User_Agent'
+        );
+
+        if ($this->dashboardService->auth($data)) {
             return redirect()->route('posts.index');
         } else {
-            return redirect()->route('signin')->with('message','username or password are not correct');
+            return redirect()->route('signin')->with('message', 'username or password are not correct');
         }
     }
 
     public function signout()
     {
-        $this->dashboardService->signout();
+        $this->dashboardService->signOut();
         return redirect()->route('signin');
     }
 }

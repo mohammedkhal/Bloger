@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard\Auth;
 
 use App\Services\DashboardService;
 use App\Http\Controllers\Controller;
 
 class SignInController extends Controller
 {
-    protected $dashboardService;
+    private $dashboardService;
 
     public function __construct(DashboardService $dashboardService)
     {
