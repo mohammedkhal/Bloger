@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 
 class SignInController extends Controller
 {
-    protected $authService;
-    
+    private $authService;
+
     public function __construct(AuthService $authService)
     {
         $this->authService = $authService;
@@ -21,11 +21,18 @@ class SignInController extends Controller
     }
 
     public function auth(Request $request)
-    {   
-        if ($this->authService->signin($request)) {
+    {
+        $data = $request->only(
+            'username',
+            'password',
+            'ip',
+            'User_Agent'
+        );
+
+        if ($this->authService->authSignIn($data)) {
             return redirect()->route('posts.index');
         } else {
-            return redirect()->route('auth.sign-in')->with('message','username or password are not correct');
+            return redirect()->route('auth.sign-in')->with('message', 'username or password are not correct');
         }
     }
 }

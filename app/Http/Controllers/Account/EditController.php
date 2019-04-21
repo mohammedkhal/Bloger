@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Account;
 use Illuminate\Http\Request;
 use App\Services\UserService;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateUserInfo;
 
 class EditController extends Controller
 {
-    protected $userService;
+    private $userService;
 
     public function __construct(UserService $userService)
     {
@@ -20,18 +21,17 @@ class EditController extends Controller
         $user =  $this->userService->find($slug);
         return view('user.view', compact('user'));
     }
-   
+
     public function edit($slug)
     {
         $user =  $this->userService->find($slug);
         return view('user.edit', compact('user'));
     }
 
-    public function update($slug, Request $request)
+    public function update(UpdateUserInfo $request, $slug)
     {
-        $this->userService->update($slug, $request);
+        $data = $request->all();
+        $this->userService->update($data, $slug);
         return redirect()->route('posts.index');
     }
-
-   
 }

@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Services\SignupService;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUserInfo;
 
 class SignUpController extends Controller
 {
-    protected $signupService;
-    
+    private $signupService;
+
     public function  __construct(SignupService $signupService)
     {
 
@@ -21,9 +22,10 @@ class SignUpController extends Controller
         return view('auth.user_signup');
     }
 
-    public function store(Request $request)
+    public function store(StoreUserInfo $request)
     {
-        $this->signupService->store($request);
+        $data = $request->all();
+        $this->signupService->store($data);
         return redirect()->route('posts.index');
     }
 }

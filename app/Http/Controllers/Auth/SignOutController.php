@@ -7,7 +7,7 @@ use App\Services\AuthService;
 
 class SignOutController extends Controller
 {
-    protected $authService;
+    private $authService;
 
     public function __construct(AuthService $authService)
     {
