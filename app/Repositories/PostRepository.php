@@ -23,15 +23,15 @@ class PostRepository
 		return $post->where('slug', $slug)->first();
 	}
 
-	public function store(array $attributes)
+	public function store($data)
 	{
 		$post = $this->getModel();
 
-		$post->title = $attributes['title'];
-		$post->short_description = $attributes['short_description'];
-		$post->body = $attributes['body'];
-		$post->slug = $attributes['slug'];
-		$post->user_id = $attributes['user_id'];
+		$post->title = $data['title'];
+		$post->short_description = $data['short_description'];
+		$post->body = $data['body'];
+		$post->slug = $data['slug'];
+		$post->user_id = $data['user_id'];
 		if ($post->save()) {
 			return $post;
 		}

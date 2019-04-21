@@ -6,7 +6,7 @@ use App\Services\PostService;
 
 class IndexController extends Controller
 {
-    protected $postService;
+    private $postService;
 
     public function __construct(PostService $postService)
     {

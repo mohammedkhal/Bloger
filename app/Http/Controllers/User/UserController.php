@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
+    private $userService;
+
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
