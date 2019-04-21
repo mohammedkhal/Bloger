@@ -9,9 +9,9 @@ use Auth;
 
 class VoteService
 {
-    protected $voteStatus = 0;
-    protected $voteRepository;
-    protected $postRepository;
+    private $voteStatus = 0;
+    private $voteRepository;
+    private $postRepository;
 
     public function  __construct(VoteRepository $voteRepository, PostRepository $postRepository)
     {
@@ -19,11 +19,11 @@ class VoteService
         $this->postRepository = $postRepository;
     }
 
-    public function update(Request $request)
+    public function update($data)
     {
-        $post_id = $this->voteRepository->find($request->slug)->id;
+        $post_id = $this->voteRepository->find($data->slug)->id;
 
-        if ($request->vote == 'up') {
+        if ($data->vote == 'up') {
             $this->voteStatus = 1;
         } else {
             $this->voteStatus = -1;
@@ -36,7 +36,7 @@ class VoteService
 
         $this->voteRepository->update($data);
         $votes = $this->voteRepository->getVote($post_id);
-        return $this->postRepository->updateVote($votes, $request->slug);
+        return $this->postRepository->updateVote($votes, $data->slug);
         
     }
 }

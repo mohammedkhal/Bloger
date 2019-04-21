@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Auth;
 
 class PostService
 {
-	protected $postRepository;
-	protected $tagRepository;
-	protected $tagJoinRepository;
-	protected $categoryJoinRepository;
+	private $postRepository;
+	private $tagRepository;
+	private $tagJoinRepository;
+	private $categoryJoinRepository;
 
 	public function __construct(PostRepository $postRepository, CategoryJoinsRepository $categoryJoinRepository, TagRepository $tagRepository, TagJoinRepository $tagJoinRepository)
 	{
@@ -40,20 +40,11 @@ class PostService
 		return $this->postRepository->find($slug);
 	}
 
-	public function store(Request $request)
+	public function store($data)
 	{
-		$request->validate([
-			'title' => 'required|max:255',
-			'body' => 'required',
-			'tag' => 'required',
-			'slug' => 'required|unique:posts',
-			'short_description' => 'required',
-		]);
-
-		$attributes = $request->all();
-		$attributes['user_id'] =  Auth::guard('user')->id();
-		$post = $this->postRepository->store($attributes);
-		$tagsFromPost = explode(",", $attributes['tag']);
+		$data['user_id'] =  Auth::guard('user')->id();
+		$post = $this->postRepository->store($data);
+		$tagsFromPost = explode(",", $data['tag']);
 		$tags = collect([]);
 		foreach ($tagsFromPost as $tag) {
 			$newTag = $this->tagRepository->store(['tag' => $tag]);
@@ -64,15 +55,14 @@ class PostService
 			$newTag = $this->tagJoinRepository->store($tag,  $post->id);
 		}
 
-		foreach ($attributes['category'] as $category) {
+		foreach ($data['category'] as $category) {
 			$this->categoryJoinRepository->store($category, $post->id);
 		}
 	}
 
-
-	public function update(Request $request, $slug)
+	public function update(array $data, $slug)
 	{
-		$request->validate([
+		$data->validate([
 			'title' => 'required|max:255',
 			'body' => 'required',
 			'tag' => 'required',
@@ -80,9 +70,8 @@ class PostService
 			'short_description' => 'required',
 		]);
 
-		$attributes = $request->all();
-		$attributes['user_id'] =  Auth::guard('user')->id();
-		$this->categoryJoinRepository->update($attributes);
-		return $this->postRepository->update($attributes, $slug);
+		$data['user_id'] =  Auth::guard('user')->id();
+		$this->categoryJoinRepository->update($data);
+		return $this->postRepository->update($data, $slug);
 	}
 }

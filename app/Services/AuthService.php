@@ -3,41 +3,42 @@
 namespace App\Services;
 
 use App\Repositories\SinginOperationUserRepository;
-use Illuminate\Http\Request;
 use Jenssegers\Agent\Agent;
 use Auth;
 
 class AuthService
 {
-    protected $SinginOperationUserRepository;
-    
+    private $SinginOperationUserRepository;
+
     public function  __construct(SinginOperationUserRepository $SinginOperationUserRepository)
     {
         $this->SinginOperationUserRepository = $SinginOperationUserRepository;
     }
 
-    public function auth(Request $request)
+    public function authSignIn($data)
     {
         $agent = new Agent();
+        $value = $data->header('User-Agent');
+        $agent->setUserAgent($value);
 
-        if (!Auth::guard('user')->attempt(['username' => $request->username, 'password' => $request->password])) {
+        if (!Auth::guard('user')->attempt(['username' => $data->username, 'password' => $data->password])) {
             return false;
         }
 
         $data = [
             'user_id' => auth('user')->id(),
-            'ip' =>  $request->ip(),
+            'ip' =>  $data->ip(),
             'device' => strtolower($agent->device()),
-            'country' => strtolower(geoip()->getLocation($request->ip())->country),
+            'country' => strtolower(geoip()->getLocation($data->ip())->country),
             'browser' => strtolower($agent->browser()),
             'operating_system' => strtolower($agent->platform()),
-            'signin' => date("Y-m-d h:i:s"),
+            'signin' => now(),
         ];
         return  $this->SinginOperationUserRepository->store($data);
     }
 
     public function signOut()
     {
-        return Auth::guard('user')->signout();
+        return Auth::guard('user')->logout();
     }
 }
