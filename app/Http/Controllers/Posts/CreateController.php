@@ -2,12 +2,12 @@
 namespace App\Http\Controllers\Posts;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Services\PostService;
+use App\Http\Requests\StorePost;
 
 class CreateController extends Controller
 {
-    protected $postService;
+    private $postService;
 
     public function __construct(PostService $postService)
     {
@@ -19,9 +19,10 @@ class CreateController extends Controller
         return view('post.create');
     }
 
-    public function store(Request $request)
+    public function store(StorePost $request)
     {
-        $this->postService->store($request);
+        $data = $request->all();
+        $this->postService->store($data);
         return  redirect()->route('posts.index');
     }
 }

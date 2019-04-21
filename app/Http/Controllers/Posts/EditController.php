@@ -2,12 +2,12 @@
 namespace App\Http\Controllers\Posts;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Services\PostService;
+use App\Http\Requests\StorePost;
 
 class EditController extends Controller
 {
-    protected $postService;
+    private $postService;
 
     public function __construct(PostService $postService)
     {
@@ -23,9 +23,10 @@ class EditController extends Controller
         return view('post.edit', compact('post'));
     }
 
-    public function update(Request $request, $slug)
+    public function update(StorePost $request, $slug)
     {
-        $this->postService->update($request, $slug);
+        $data = $request->all();
+        $this->postService->update($data, $slug);
         return redirect()->route('posts.index');
     }
 }
