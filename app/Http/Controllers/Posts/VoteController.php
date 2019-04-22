@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Posts;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Services\VoteService;
+use App\Services\VoteService;   
 
 class VoteController extends Controller
 {
