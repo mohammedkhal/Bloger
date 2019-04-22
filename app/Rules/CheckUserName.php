@@ -27,9 +27,7 @@ class CheckUserName implements Rule
     {
         if (preg_match("/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/", $value)) {
             return true;
-        } else {
-            return false;
-        }
+        } 
     }
 
     /**
