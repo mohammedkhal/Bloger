@@ -19,7 +19,7 @@ class SignInController extends Controller
         return view('signin');
     }
 
-    public function auth(Request $request)
+    public function auth(AuthSignIn $request)
     {
         $data = $request->only(
             'username',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Services\AuthService;
 use Illuminate\Http\Request;
+use App\Http\Requests\AuthSignIn;
 
 class SignInController extends Controller
 {
@@ -20,7 +21,7 @@ class SignInController extends Controller
         return view('auth.user_signin');
     }
 
-    public function auth(Request $request)
+    public function auth(AuthSignIn $request)
     {
         $data = $request->only(
             'username',
